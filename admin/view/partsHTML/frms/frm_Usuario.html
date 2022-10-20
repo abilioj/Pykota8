@@ -1,0 +1,66 @@
+<form class="form-horizontal style-form" method="post" 
+      id="form" onsubmit="//return validarForm();"
+      action="../../controle/cad_{nomeControle}.php">
+    <input type="hidden" name="acao" value="s"/>
+    <input type="hidden" name="id" value="{U->ID}" id="id"/>
+
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-6 col-md-2 col-lg-2 control-label"><strong class="text-red">*</strong>Nome</label>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <input type="text" name="nome" class="form-control" {disabled} value="{U->NOME}" placeholder="Digite o nome" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-6 col-md-2 col-lg-2 control-label">Email</label>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <input type="text" name="email" onblur="validaEmail(this)" class="form-control" {disabled} value="{U->EMAIL}" placeholder="Digite um email">
+            <div id="msgE"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-6 col-md-2 col-lg-2 control-label"><strong class="text-red">*</strong>Login</label>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+           <!-- BEGIN BLOCK_NOVO -->
+            <select name="login" class="form-control sel" id="idUser" {disabled} >
+                <option value=""></option>
+                <!-- BEGIN BLOCK_U -->
+                <option value="{IDNU}" {SELECTEDNU}>{VALUENU}</option>
+                <!-- END BLOCK_U -->
+            </select>
+            <!-- END BLOCK_NOVO -->
+            <!-- BEGIN BLOCK_ALTERAR -->
+            <input type="text" name="login" onblur="validaLogin(this)" class="form-control" disabled value="{U->LOGIN}"  placeholder="Digite o login" required>
+            <div id="msgL"></div>
+            <!-- END BLOCK_ALTERAR -->
+        </div>
+    </div>
+    <!-- BEGIN CAMPOSENHA -->
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Senha</label>
+        <div class="col-lg-6">
+            <input type="password" name="senha" class="form-control" value="" placeholder="Senha de usuário" disabled>
+        </div>
+    </div>
+    <!-- END CAMPOSENHA -->
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-6 col-md-2 col-lg-2 control-label">Telefone</label>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <input type="text" name="telefone" class="form-control inputFONE" value="{U->TELEFONE}"  placeholder="Digite o Telefone">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-6 col-md-2 col-lg-2 control-label"><strong class="text-red">*</strong>Nivel de Acesso</label>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <select id="nivel" name="nivel" class="form-control" {disabled}  placeholder="Selecione o Nivel" required>
+                <option value=""></option>
+                <!-- BEGIN BLOCK_N -->
+                <option value="{IDNN}" {SELECTEDNN}>{VALUENN}</option>
+                <!-- END BLOCK_N -->
+            </select>
+        </div>
+    </div>
+
+    {BTN_FORNFULL}
+</form>
+<h6><strong class="text-red"> Obsevação: Campos com "*" são obrigatorio.</strong></h6>
+<hr/>

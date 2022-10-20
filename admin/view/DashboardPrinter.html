@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{lang}">
+    <head>
+        {HEAD}
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            {HRADER_MENU}
+            <div class="content-wrapper">
+                <!-- Seção principal -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="box with-border">
+                                
+                                <div class="box-header">
+                                    {PARTSFORMDASHBOARD}                                                    
+                                </div>
+                                
+                                <div class="box-body">
+                                    
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <table class="table table-bordered table-responsive" id="dataTables">
+                                                <thead>
+                                                    <tr>
+                                                        <th>nome</th>
+                                                        <th>modelo</th>
+                                                        <th>status</th>
+                                                        <th>nivel de toner</th>
+                                                        <th>ip</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            {FOOTER}
+        </div>
+        {ModalVERPrinter}
+        <!-- /.wrapper -->
+        {SCRIPT_UTIL}
+        {SCRIPT}
+        {SCRIPT_CHAR}
+        <script src="{caminho}assets/js_json/Json_DashboardPrinter.js"></script>
+        <script type="text/javascript">
+            Refet(1, 6000);
+        </script>
+    </body>
+</html>

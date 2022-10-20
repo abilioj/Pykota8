@@ -1,0 +1,87 @@
+/* 
+    Created on : 07/02/2017, 00:14:55
+    Author     : Abílio José
+*/
+
+/****************************/
+/* Background color classes */
+/****************************/
+.fa-cor-white {
+    color: #000000;
+    border-color: #000000;
+}
+.fa-cor-grey {
+    color: #999999;
+    border-color: #eeeeee;
+}
+.fa-cor-black {
+    color: #000;
+    border-color: #000000;
+}
+.fa-cor-red {
+    color: #f75353;
+    border-color: #CC0000;
+}
+.fa-cor-green {
+    color: #008749;
+    border-color: #008749;
+}
+.fa-cor-lblue {
+    color: #32c8de;
+    border-color: #32c8de;
+}
+.fa-cor-blue {
+    color: #609cec;
+    border-color: #609cec;
+}
+.fa-cor-orange {
+    color: #f78153;
+    border-color: #f78153;
+}
+.fa-cor-yellow {
+    color: #fcd419;
+    border-color: #fcd419;
+}
+.fa-cor-purple {
+    color: #cb79e6;
+    border-color: #cb79e6;
+}
+.fa-cor-rose {
+    color: #ff61e7;
+    border-color: #ff61e7;
+}
+.fa-cor-brown {
+    color: #d08166;
+    border-color: #d08166;
+}
+
+@media (min-width: 480px){/* < 768 -> xs */ 
+    .fa-2x{
+        /*font-size: 80%;*/
+        font-size: large;
+    }
+} 
+@media (min-width: 768px){ /* > 768 -> sm */
+    .fa-2x{
+        /*font-size: 80%;*/
+        font-size: large;
+    }
+}
+@media (min-width: 992px){ /* > 992 -> md */
+    .fa-2x{
+        /*font-size: 145%;*/
+        font-size: x-large;
+    }
+}
+@media (min-width: 1200px){/* > 1200 -> lg */
+    .fa-2x{
+        /*font-size: 225%;*/
+        font-size: x-large;
+    }
+} 
+@media (min-width: 1366px){/* > 1366 -> lg */
+    .fa-2x{
+        /*font-size: 245%;*/
+        font-size: xx-large;
+    }
+}  

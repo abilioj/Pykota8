@@ -1,0 +1,38 @@
+/* 
+    Created on : 18 de ago de 2021, 23:18:22
+    Author     : AJF
+*/
+
+.margin-form-input-fg{
+    margin-bottom: -5px;
+    margin-top: -5px;
+}
+
+.margin-form-input{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.margin-form-input-t{
+    margin-top: 5px;
+}
+
+.margin-form-input-b{
+    margin-bottom: 5px;
+}
+
+.margin {
+  margin: 10px;
+}
+.margin-bottom {
+  margin-bottom: 20px;
+}
+.margin-bottom-none {
+  margin-bottom: 0;
+}
+.margin-r-5 {
+  margin-right: 5px;
+}
+.margin-l-5 {
+  margin-left: 5px;
+}

@@ -12,9 +12,9 @@
     "autoload": {
         "classmap": [
             "_lib/raelgc/view",
-            "app/CONFIG",
-            "app/Controle",
-            "app/Rules",
+            "app/config",
+            "app/controller",
+            "app/rules",
             "app/lib",
             "src/bean",
             "src/connection",

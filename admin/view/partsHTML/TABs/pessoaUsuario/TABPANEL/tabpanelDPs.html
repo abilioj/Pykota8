@@ -1,0 +1,52 @@
+<div role="tabpanel" class="tab-pane active" id="seccion0">
+    <hr/>
+    <div class="form-group">
+        <label class="col-md-2 col-lg-2 control-label">Nome <strong class="text-red">*</strong></label>
+        <div class="col-md-10 col-lg-9">
+            <input type="text" name="nome" class="form-control" placeholder="Digeti seu Nome Completo" {disabled} value="{P->NOMEPESSOA}" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-lg-1 control-label">Sexo</label>
+        <div class="col-md-2 col-lg-3">
+            <select name="sexo" class="form-control" {disabled} >
+                <option value="">Selecione o Sexo</option>
+                <!-- BEGIN BLOCK_Gv -->
+                <option value="{IDGv}" {SELECTEDGv}>{VALUEGv}</option>
+                <!-- END BLOCK_Gv -->
+            </select>
+        </div>
+        <label class="col-md-2 col-lg-1 control-label">Estado Civil</label>
+        <div class="col-md-2 col-lg-3">
+            <select name="estadocivil" class="form-control"{disabled}  >
+                <option value="">Selecione o Estado Civil</option>
+                <!-- BEGIN BLOCK_ECv -->
+                <option value="{IDECv}" {SELECTEDECv}>{VALUEECv}</option>
+                <!-- END BLOCK_ECv -->
+            </select>
+        </div>
+        <label class="col-md-2 col-lg-1 control-label">Naturalidade</label>
+        <div class="col-md-2 col-lg-3">
+            <input type="text" name="naturalidade" class="form-control" placeholder="Digeti a Naturalidade" {disabled} value="{P->NATURALIDADEPESSOA}" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 col-lg-1 control-label">Data</label>
+        <div class="col-md-3 col-lg-3">
+            <!-- BEGIN CAMP_DATA -->
+            <input type="date" id="data" name="datanascimento" {disabled} value="{P->DATANASCIMENTOPESSOA}" maxlength="10"  placeholder="DD/MM/AAAA" class="form-control"/>
+            <!-- END CAMP_DATA -->
+            <!-- BEGIN CAMP_DATA2 -->
+            <input type="text" id="data" name="datanascimento" {disabled} onkeyup="Mascara_Data(this, event);" value="{P->DATANASCIMENTOPESSOA}" maxlength="10" placeholder="DD/MM/AAAA" class="form-control"/>
+            <!-- END CAMP_DATA2 -->
+        </div>
+        <label class="col-md-1 col-lg-1 control-label">Telefone</label>
+        <div class="col-md-2 col-lg-3">
+            <input type="tel" name="telefone" id="inputFONE" class="form-control" placeholder="Digeti o Telefone" {disabled} value="{P->TELEFONEPESSOA}">
+        </div>
+        <label class="col-md-1 col-lg-1 control-label">Celular</label>
+        <div class="col-md-2 col-lg-3">
+            <input type="tet" name="celular" id="inputCEL" class="form-control" placeholder="Digeti o Celular" {disabled} value="{P->CELULARPESSOA}" >
+        </div>
+    </div>
+</div>
