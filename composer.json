@@ -1,0 +1,29 @@
+{
+    "name": "tihuana/pykota",
+    "authors": [
+        {
+            "name": "abilioj",
+            "email": "abilioj@live.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "autoload": {
+        "classmap": [
+            "_lib/raelgc/view",
+            "app/CONFIG",
+            "app/Controle",
+            "app/Rules",
+            "app/lib",
+            "src/bean",
+            "src/connection",
+            "src/dao",
+            "src/util"
+        ],
+        "files": [
+            "functions/authUser.php"
+            ,"functions/echos.php"
+        ]
+    }
+}
