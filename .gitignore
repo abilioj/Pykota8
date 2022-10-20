@@ -4,10 +4,10 @@
 /[Tt]mp/
 
 # -- NetBeans --
-#nbproject/private/*
-#nbproject/*.properties
-#nbproject/private/config.properties
-#nbproject/private/private.properties
+nbproject/private/*
+nbproject/*.properties
+nbproject/private/config.properties
+nbproject/private/private.properties
 
 # -- bower --
 admin/assets/plugins/
@@ -21,4 +21,5 @@ composer.lock
 # -- img --
 
 # -- Projetos --
-#app/CONFIG/ConfigDB.Class.php
+app/CONFIG/ConfigDB.Class.php
+app/CONFIG/ConfigAD.Class.php
