@@ -38,7 +38,7 @@ class ConfigBDClass {
         endif;
 //  ------------------ usado POSTGRE para PRODUÇAO------------------
         if ($this->optDB == 1):
-            $this->prefixoBD = "";
+            $this->prefixoBD = "PP";
             $this->servidor = "";
             $this->bancoDeDados = $this->prefixoBD . "";
             $this->usuario = "";
