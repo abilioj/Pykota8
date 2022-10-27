@@ -24,19 +24,18 @@ class ConexaoPostgres {
     private string $db_row_autocommit;
     private string $beginTransaction;
     private string $isOk;
-    private string $string;
     public string $sql;
 
     function __construct() {
-        $connConfig = new ConfigBDClass();
-        $this->host = $connConfig->getServidor();
-        $this->dbname = $connConfig->getBancoDeDados();
-        $this->port = $connConfig->getPorta();
-        $this->user = $connConfig->getUsuario();
-        $this->password = $connConfig->getSenha();
+        $configBD = new ConfigBDClass();
+        $this->host = $configBD->getHostServer();
+        $this->port = $configBD->getPort();
+        $this->dbname = $configBD->getDatabase();
+        $this->user = $configBD->getUser();
+        $this->password = $configBD->getpassword();
     }
 
-    private function getConnect() : bool {
+    private function getConnect() : mixed {
         $this->conn = pg_connect("host=" . $this->host . " port=" . $this->port . " dbname=" . $this->dbname . " user=" . $this->user . " password=" . $this->password . "");
         if ($this->conn) {
             return $this->conn;
@@ -51,9 +50,9 @@ class ConexaoPostgres {
         pg_close($this->conn);
     }
 
-    public function executeQuery() {
+    public function executeQuery() : mixed {
         try {
-            $this->conecta();
+            $this->getConnect();
         } catch (Exception $erro) {
             return false;
         }
@@ -107,12 +106,7 @@ class ConexaoPostgres {
     }
 
     public function RsutArrayAssoc() {
-        $result = $this->executeQuery();
-//        if(is_array($result)):
-        return pg_fetch_array($result, PGSQL_ASSOC);
-//        else:
-//            return null;
-//        endif;
+        return null;
     }
 
     // Salva no array $line resultados retornados
@@ -143,17 +137,19 @@ class ConexaoPostgres {
     public function TestConect() {
         $this->conn = pg_connect("host=" . $this->host . " port=" . $this->port . " dbname=" . $this->dbname . " user=" . $this->user . " password=" . $this->password . "");
         if ($this->conn) {
-            $this->string = "conectado";
+            $this->msgInfo = "conectado";
+            $this->disconnects();
             return true;
         } else {
-            $this->string = "Erro ao conectar ao banco de dados.";
+            $this->msqInfo = "Erro ao conectar ao banco de dados.";
+            $this->disconnects();
             return false;
         }
     }
-    
-    
+
+
     public function actionAutocommit() {
-        // autocommit trur - on 
+        // autocommit trur - on
     }
 
     public function actionCommit() {

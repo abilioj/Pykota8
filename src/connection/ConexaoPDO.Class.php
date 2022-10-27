@@ -7,46 +7,38 @@
  */
 class ConexaoPDO {
 
-    private static $pdo;
-    private $database;
-    private $user;
-    private $server;
-    private $password;
-    private $port;
-    private $drivers;
-    private $connection;
-    private $execution;
-    private $host_info;
-    private $toerror;
-    private $msgErro;
-    private $msgInfo;
-    private $numrows;
-    private $autocommit;
-    private $db_row_autocommit;
-    private $beginTransaction;
-    private $isOk;
-    private $dsn;
-    private $options;
-    private $lastInsertId;
-    public $sql;
-    public $string;
-
-    function __construct() {
-        $this->isOk = false;
-        $this->msgInfo = "";
-        $this->msgErro = "";
-        $this->host_info = "";
-        $this->numrows = 0;
-        $this->autocommit = false;
-        $this->db_row_autocommit = null;
-        $this->lastInsertId = 0;
+    public function __construct(
+        private mixed $pdo = null,
+        private string $server = '',
+        private string $port = '',
+        private string $drivers = '',
+        private string $database = '',
+        private string $user = '',
+        private string $password = '',
+        private mixed $connection = null,
+        private mixed $execution = null,
+        private string $host_info  = '',
+        private string $toerror = '',
+        private mixed $beginTransaction = null,
+        private string $dsn = '',
+        private mixed $options = null,
+        private int $lastInsertId = 0,
+        private bool $isOk = false,
+        private string $msgInfo = "",
+        private string $msgErro = "",
+        private int $numrows = 0,
+        private bool $autocommit = false,
+        private mixed $db_row_autocommit = null,
+        public string $sql = '',
+        public string $string = ''
+        ) {
         $configBD = new ConfigBDClass();
+        $this->server = $configBD->getHostServer();
         $this->drivers = $configBD->getDrivers();
-        $this->database = $configBD->getBancoDeDados();
-        $this->user = $configBD->getUsuario();
-        $this->server = $configBD->getServidor();
-        $this->password = $configBD->getSenha();
-        $this->port = $configBD->getPorta();
+        $this->port = $configBD->getPort();
+        $this->database = $configBD->getDatabase();
+        $this->user = $configBD->getUser();
+        $this->password = $configBD->getpassword();
         $this->dsn = $configBD->getDsn();
         $this->options = $configBD->getOptions();
     }
@@ -57,6 +49,7 @@ class ConexaoPDO {
             $this->validationDrivers();
             $this->connection = new PDO($this->dsn, $this->user, $this->password, $this->options);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->msgInfo = "Conectado ...";
         } catch (PDOException $PDOe) {
             $this->isOk = false;
             $this->msgErro = $PDOe->getMessage();
@@ -220,7 +213,7 @@ class ConexaoPDO {
             return (array) [];
         endif;
     }
-    
+
     public function RsutArrayCLASSTYPE() : array {
         $result = $this->executeQuery();
         if ($this->isOk && $this->numrows > 0):
@@ -258,14 +251,16 @@ class ConexaoPDO {
         $this->isOk = true;
         try {
             $this->validationConnect();
+            $this->getConnect();
         } catch (PDOException $PDOe) {
             $this->isOk = false;
             $this->msgErro = "Error: " . $PDOe->getMessage();
         } catch (Exception $e) {
             $this->isOk = false;
             $this->msgErro = "Error: " . $e->getMessage();
+        }finally{
+            $this->disconnects();
         }
-        $this->connection = null;
         return $this->isOk;
     }
 
@@ -282,7 +277,7 @@ class ConexaoPDO {
     }
 
     public function actionAutocommit() {
-        // autocommit trur - on 
+        // autocommit trur - on
     }
 
     public function actionCommit() {

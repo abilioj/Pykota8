@@ -1,3 +1,3 @@
 <?php
 
-include './';
+include './vendor/autoload.php';

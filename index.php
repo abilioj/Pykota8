@@ -1,7 +1,3 @@
 <?php
-include './vendor/autoload.php';
-
-$conn = new ConexaoPostgres();
-$conn->TestConect();
-echo '' . $conn->getString();
-
+// include "./vendor/autoload.php";
+// header('location: ./admin/');
