@@ -49,7 +49,7 @@ class DaoCotasUser {
         $conn = new Conexao();
         $camposTabelas = array("co.pkuser", "co.LimiteSetor", "co.pkgroup");
         $conn->sql = "SELECT pkuser, \"LimiteSetor\", pkgroup FROM \"Cotas_User\" WHERE pkuser = {$obj->getPkuser()} and pkgroup = {$obj->getPkgroup()} ;";
-        $arrayDados = (array) $conn->montaArrayPesquisa();
+        $arrayDados = (array) $conn->fetchArrayAssoc();
         if ($arrayDados != null) {
             $objmonta = new MontaDados();
             $objmonta->colunas = $camposTabelas;
@@ -68,7 +68,7 @@ class DaoCotasUser {
         $conn = new Conexao();
         $camposTabelas = array("g.groupname", "u.username", "cu.LimiteSetor");
         $conn->sql = "Select g.groupname, u.username, \"LimiteSetor\" from \"Cotas_User\" as cu,groups as g, users as u where cu.pkgroup=g.id and cu.pkuser = u.id and u.id = {$obj->getPkuser()};";
-        $arrayDados = (array) $conn->montaArrayPesquisa();
+        $arrayDados = (array) $conn->fetchArrayAssoc();
         if ($arrayDados != null) {
             $objmonta = new MontaDados();
             $objmonta->colunas = $camposTabelas;
@@ -88,7 +88,7 @@ class DaoCotasUser {
         $conn = new Conexao();
         $camposTabelas = array("co.pkuser", "co.LimiteSetor", "co.pkgroup");
         $conn->sql = "SELECT pkuser, \"LimiteSetor\", pkgroup FROM \"Cotas_User\" WHERE pkuser = {$obj->getPkuser()} ;";
-        $arrayDados = (array) $conn->montaArrayPesquisa();
+        $arrayDados = (array) $conn->fetchArrayAssoc();
         return $arrayDados;
     }
 

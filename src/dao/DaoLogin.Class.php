@@ -75,7 +75,7 @@ class DaoLogin {
         $sql = "SELECT l.id, l.login, l.senha, l.email, l.cpf, l.nivel, l.pkgroup, l.status FROM login AS l WHERE l.login = 'abilioj'   LIMIT 1 ;";
         $conn = new Conexao();
         $conn->sql = $sql;
-        $arrayDados = $conn->montaArrayPesquisa();
+        $arrayDados = $conn->fetchArrayAssoc();
         $d = new Dados();
         if ($arrayDados != null) {
             $objmonta = new MontaDados();
