@@ -50,8 +50,7 @@ $sql_tb = $sqlR->sqlHomeUsersBalance($arrayWhere);
 $conn->sql = $sql_tb;
 
 //execlute
-$result = $conn->montaArrayPesquisa();
-$row = $conn->linhasPesquisadas("select");
+$result = $conn->fetchArrayAssoc(); 
 if ($result != null):
     foreach ($result as $r):
         $dados["data"][] = array(0, $r["idu"], 0

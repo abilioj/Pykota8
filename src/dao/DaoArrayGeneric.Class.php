@@ -20,7 +20,7 @@ class DaoArrayGeneric {
         $this->Array = NULL;
         $conn = new Conexao();
         $conn->sql = "select id as id, username as nome from users;";
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("id" => $dados["id"], "value" => $dados["nome"]);
         endforeach;
@@ -32,7 +32,7 @@ class DaoArrayGeneric {
         $this->Array = NULL;
         $conn = new Conexao();
         $conn->sql = "SELECT id as id, printername as value, description as desc FROM printers";
-        $this->Array = $conn->montaArrayPesquisa();
+        $this->Array = $conn->fetchArrayAssoc();
         return $this->Array;        
     }
 
@@ -49,7 +49,7 @@ class DaoArrayGeneric {
         else:
             $conn->sql = "select g.id,g.groupname as nome from groups as g left join \"Cotas_User\" cu on cu.pkgroup=g.id where cu.pkuser={$id} ;";
         endif;
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("id" => $dados["id"], "value" => $dados["nome"]);
         endforeach;
@@ -61,7 +61,7 @@ class DaoArrayGeneric {
         $this->Array = NULL;
         $conn = new Conexao();
         $conn->sql = "select ID_NIVEL as id, TIPO_NIVEL as nome from NIVEL_USUARIO;";
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("id" => $dados["id"], "value" => $dados["nome"]);
         endforeach;
@@ -73,7 +73,7 @@ class DaoArrayGeneric {
         $this->Array = NULL;
         $conn = new Conexao();
         $conn->sql = "select id_usuario as id, login_usuario as nome from usuario";//nome_usuario login_usuario
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("id" => $dados["id"], "value" => $dados["nome"]);
         endforeach;
@@ -87,7 +87,7 @@ class DaoArrayGeneric {
         $conn = new Conexao();
         $conditions = array('u.id=' . $idu . '', 'p.id=' . $idi . '');
         $conn->sql = $sqlR->sqlDetalheCotasDeGrupos($idg, $conditions);
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array = array("id" => $dados["idi"], "nome" => $dados["usuario"]);
         endforeach;
@@ -99,7 +99,7 @@ class DaoArrayGeneric {
         $this->Array = NULL;
         $conn = new Conexao();
         $conn->sql = "select u.id as id,u.username as value from users as u left join groupsmembers gm on gm.userid=u.id where gm.groupid = {$idg} ;";
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("id" => $dados["id"], "value" => $dados["value"]);
         endforeach;
@@ -112,7 +112,7 @@ class DaoArrayGeneric {
         $conn = new Conexao();
         $SQLR = new SqlRules();
         $conn->sql = $SQLR->sqlSelectUsuariosResResponsavel();
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("id" => $dados["id"], "value" => $dados["nome"]);
         endforeach;
@@ -123,7 +123,7 @@ class DaoArrayGeneric {
     public function Array_() {
         $this->Array = NULL;
         $conn = new Conexao();
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("id" => $dados["id"]);
         endforeach;

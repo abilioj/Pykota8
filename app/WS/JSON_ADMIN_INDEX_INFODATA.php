@@ -3,8 +3,6 @@
 require './config_json.php';
 
 //Classes de utilização e Config
-$Service->Default_charset();
-$Service->Error_Reporting();
 $conn = new Conexao();
 
 //variavel Class
@@ -20,9 +18,8 @@ $dados = null;
 $sql_tb = "SELECT sum(uc.pagecounter) as consumido, sum(uc.softlimit) as limite, sum(uc.softlimit) - sum(uc.pagecounter) as disponivel FROM userpquota as uc;";
 
 $conn->sql = $sql_tb;
-//execlute
-$row = $conn->linhasPesquisadas("select");
-$result = $conn->montaArrayPesquisa();
+//execlute 
+$result = $conn->fetchArrayAssoc();
 if ($result != null):
     foreach ($result as $r):
         $dados["infodata"] = array("limite" => $r["limite"], "consumido" =>$r["consumido"], "disponivel" => $r["disponivel"]);

@@ -6,40 +6,40 @@
  * @author AJGF
  */
 class ConexaoPDO {
-
-    private static $pdo;
-    private $database;
-    private $user;
-    private $server;
-    private $password;
-    private $port;
-    private $drivers;
-    private $connection;
+    private static ?PDO $pdo = null;
+    private string $database;
+    private string $user;
+    private string $server;
+    private string $password;
+    private string $port;
+    private string $drivers;
+    private ?PDO $connection = null;
     private $execution;
-    private $host_info;
-    private $toerror;
-    private $msgErro;
-    private $msgInfo;
-    private $numrows;
-    private $autocommit;
+    private string $host_info = '';
+    private int $toerror = 0;
+    private string $msgErro = '';
+    private string $msgInfo = '';
+    private int $numrows = 0;
+    private bool $autocommit = false;
     private $db_row_autocommit;
-    private $beginTransaction;
-    private $isOk;
-    private $dsn;
-    private $options;
-    private $lastInsertId;
-    public $sql;
-    public $string;
+    private ?bool $beginTransaction = null;
+    private bool $isOk = false;
+    private string $dsn;
+    private array $options;
+    private int $lastInsertId = 0;
+    public ?string $sql = null;
+    public string $string;
 
-    function __construct() {
+    public function __construct() {
         $this->isOk = false;
         $this->msgInfo = "";
         $this->msgErro = "";
         $this->host_info = "";
         $this->numrows = 0;
         $this->autocommit = false;
-        $this->db_row_autocommit = null;
         $this->lastInsertId = 0;
+
+        // Assuming the `ConfigBDClass` returns configurations for the database
         $configBD = new ConfigBDClass();
         $this->drivers = $configBD->getDrivers();
         $this->database = $configBD->getBancoDeDados();
@@ -52,11 +52,11 @@ class ConexaoPDO {
     }
 
     private function getConnect(): bool {
-        $this->isOk = true;
         try {
             $this->validationDrivers();
             $this->connection = new PDO($this->dsn, $this->user, $this->password, $this->options);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->isOk = true;
         } catch (PDOException $PDOe) {
             $this->isOk = false;
             $this->msgErro = $PDOe->getMessage();
@@ -64,40 +64,34 @@ class ConexaoPDO {
         return $this->isOk;
     }
 
-    private function disconnects() {
+    private function disconnect(): void {
         $this->connection = null;
-        unset($this->connection);
     }
 
-    private function validationDrivers() {
+    private function validationDrivers(): void {
         $this->isOk = false;
-        $array_Drivers = PDO::getAvailableDrivers();
-        foreach ($array_Drivers as $row):
-            if ($row == $this->drivers):
-                $this->isOk = true;
-            endif;
-        endforeach;
-        if (!$this->isOk):
-            $this->msgErro = "driver " . $this->drivers . " Não Encontrado <br/>'";
-            $this->isOk = FALSE;
-            throw new Exception("Error: " . $this->msgErro);
-        endif;
-    }
-
-    private function validationConnect() {
-        $this->numrows = 0;
-        if (!$this->getConnect()):
+        $availableDrivers = PDO::getAvailableDrivers();
+        if (in_array($this->drivers, $availableDrivers, true)) {
+            $this->isOk = true;
+        } else {
+            $this->msgErro = "Driver {$this->drivers} não encontrado.";
             throw new Exception($this->msgErro);
-            return; //$this->isOk;
-        endif;
-        $this->isOk = TRUE;
+        }
     }
 
-    private function validationSql() {
-        if (is_null($this->sql)):
-            $this->isOk = FALSE;
-            throw new Exception("Error: A sql é Null!");
-        endif;
+    private function validationConnect(): void {
+        $this->numrows = 0;
+        if (!$this->getConnect()) {
+            throw new Exception($this->msgErro);
+        }
+        $this->isOk = true;
+    }
+
+    private function validationSql(): void {
+        if (is_null($this->sql)) {
+            $this->isOk = false;
+            throw new Exception("Erro: A SQL é nula!");
+        }
     }
 
     public function executeQuery() {
@@ -106,20 +100,19 @@ class ConexaoPDO {
             $this->validationSql();
             $this->connection->query("SET NAMES 'UTF8';");
             $this->execution = $this->connection->query($this->sql);
-            if (!$this->execution):
-                throw new PDOException;
-            else:
-                $this->isOk = true;
-                $this->numrows = $this->execution->rowCount();
-            endif;
+            if (!$this->execution) {
+                throw new PDOException();
+            }
+            $this->isOk = true;
+            $this->numrows = $this->execution->rowCount();
         } catch (PDOException $PDOe) {
             $this->isOk = false;
-            $this->msgErro = $PDOe->getMessage() . "";
+            $this->msgErro = $PDOe->getMessage();
         } catch (Exception $e) {
             $this->isOk = false;
-            $this->msgErro = $e->getMessage() . "";
+            $this->msgErro = $e->getMessage();
         } finally {
-            $this->disconnects();
+            $this->disconnect();
         }
         return $this->execution;
     }
@@ -128,20 +121,22 @@ class ConexaoPDO {
         try {
             $this->validationConnect();
             $this->validationSql();
-            if (!$this->isOk):
+            if (!$this->isOk) {
                 return $this->isOk;
-            endif;
+            }
+
             $affected = $this->connection->exec($this->sql);
-            if ($affected === false):
-                throw new PDOException;
-            else:
-                $this->isOk = TRUE;
-                if (ToString::VerifecaParteDeString($this->sql, "INSERT")):
-                    $this->lastInsertId = $this->connection->lastInsertId();
-                endif;
-                $this->numrows = $affected;
-                $this->msgInfo = "Affected rows: " . $this->numrows;
-            endif;
+            if ($affected === false) {
+                throw new PDOException();
+            }
+
+            $this->isOk = true;
+            if (stripos($this->sql, 'INSERT') !== false) {
+                $this->lastInsertId = (int)$this->connection->lastInsertId();
+            }
+            $this->numrows = $affected;
+            $this->msgInfo = "Linhas afetadas: " . $this->numrows;
+
         } catch (PDOException $PDOe) {
             $this->isOk = false;
             $this->msgErro = $PDOe->getMessage();
@@ -149,192 +144,104 @@ class ConexaoPDO {
             $this->isOk = false;
             $this->msgErro = $e->getMessage();
         } finally {
-            $this->disconnects();
+            $this->disconnect();
         }
-
         return $this->isOk;
     }
 
-    public function QueryStmtUpdate(): bool {
+    public function queryStmtUpdate(): bool {
         $this->validationConnect();
         try {
             $this->execution = $this->connection->prepare($this->sql);
             $this->execution->execute();
-            $this->isOk =TRUE;
+            $this->isOk = true;
         } catch (PDOException $e) {
             $this->isOk = false;
-            $this->msgErro = $e->getTraceAsString();
+            $this->msgErro = $e->getMessage();
         } finally {
-            $this->disconnects();
+            $this->disconnect();
         }
         return $this->isOk;
     }
 
-    public function CountRow(): int {
+    public function countRow(): int {
         $this->validationConnect();
-        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         try {
             $this->execution = $this->connection->query($this->sql);
-            $this->execution->execute();
             $this->numrows = $this->execution->rowCount();
         } catch (PDOException $e) {
             $this->isOk = false;
             $this->msgErro = $e->getMessage();
         } finally {
-            $this->disconnects();
+            $this->disconnect();
         }
         return $this->numrows;
     }
 
-    public function QuerysTransaction(array $arraySQLs): bool {
+    public function queryTransaction(array $arraySQLs): bool {
         $this->validationConnect();
         $this->connection->beginTransaction();
         try {
-            foreach ($arraySQLs as $rowSQL):
-                if (!$this->connection->query($rowSQL)):
-                    throw new PDOException;
-                endif;
-            endforeach;
-            $this->lastInsertId = $this->connection->lastInsertId();
+            foreach ($arraySQLs as $sql) {
+                if (!$this->connection->exec($sql)) {
+                    throw new PDOException();
+                }
+            }
+            $this->lastInsertId = (int)$this->connection->lastInsertId();
             $this->connection->commit();
         } catch (PDOException $e) {
-            $this->msgErro = "Failed: " . $e->getMessage();
+            $this->msgErro = "Falha: " . $e->getMessage();
+            $this->connection->rollBack();
         } finally {
-            $this->disconnects();
+            $this->disconnect();
         }
         return $this->isOk;
     }
 
-    public function montaArrayPesquisa(): array {
-        $i = 0;
-        $arrayDados = null;
-        $arrayresult = $this->executeQuery();
-        if ($this->isOk && $this->numrows > 0):
-            while ($a = $arrayresult->fetch()):
-                $arrayDados[$i] = $a;
-                $i++;
-            endwhile;
-            unset($arrayresult);
-            return (array) $arrayDados;
-        else:
-            return (array) [];
-        endif;
-    }
-    
-    public function RsutArrayCLASSTYPE() : array {
+    public function fetchArrayAssoc(): array {
         $result = $this->executeQuery();
-        if ($this->isOk && $this->numrows > 0):
-            return $result->fetchAll(PDO::FETCH_CLASSTYPE);
-        else:
-            return (array) null;
-        endif;
+        return $this->isOk && $this->numrows > 0 ? $result->fetchAll(PDO::FETCH_ASSOC) : [];
     }
 
-    public function RsutArrayAssoc(): array {
+    public function fetchArrayCLASSTYPE(): array {
         $result = $this->executeQuery();
-        if ($this->isOk && $this->numrows > 0):
-            return $result->fetchAll(PDO::FETCH_ASSOC);
-        else:
-            return (array) null;
-        endif;
+        return $this->isOk && $this->numrows > 0 ? $result->fetchAll(PDO::FETCH_CLASSTYPE) : [];
     }
 
-    public function RsutArrayAssocII(): array {
-        $i = 0;
-        $arrayDados = null;
-        $arrayresult = $this->executeQuery();
-        if ($this->isOk && $this->numrows > 0):
-            while ($a = $arrayresult->fetchAll(PDO::FETCH_ASSOC)) {
-                $arrayDados[$i] = $a;
-                $i++;
-            }
-            return (array) $arrayDados;
-        else:
-            return (array) null;
-        endif;
-    }
-
-    public function TestConect(): bool {
-        $this->isOk = true;
+    public function testConnect(): bool {
         try {
             $this->validationConnect();
-        } catch (PDOException $PDOe) {
+            $this->isOk = true;
+        } catch (PDOException | Exception $e) {
             $this->isOk = false;
-            $this->msgErro = "Error: " . $PDOe->getMessage();
-        } catch (Exception $e) {
-            $this->isOk = false;
-            $this->msgErro = "Error: " . $e->getMessage();
+            $this->msgErro = $e->getMessage();
+        } finally {
+            $this->disconnect();
         }
-        $this->connection = null;
         return $this->isOk;
     }
 
-    public function linhasPesquisadas(string $paramTipo): int {
-        $this->varInt = 0;
-        $tipo = strtolower($paramTipo);
-        if ($tipo == "select"):
-            $this->varInt = $this->CountRow();
-        else:
-            $this->updateQuery();
-            $this->varInt = $this->numrows;
-        endif;
-        return $this->varInt;
-    }
-
-    public function actionAutocommit() {
-        // autocommit trur - on 
-    }
-
-    public function actionCommit() {
-        $this->connection->commit();
-    }
-
-    public function actionRollback() {
-        $this->connection->rollBack();
-    }
-
-    public function informationConn(): string {
-        return $this->string;
-    }
-
-    public function setBeginTransaction(bool $beginTransaction) {
-        $this->beginTransaction = $beginTransaction;
-    }
-
-    public function setAutocommit(bool $autocommit) {
+    public function setAutocommit(bool $autocommit): void {
         $this->autocommit = $autocommit;
     }
 
-    public function setDatabase(string $database) {
-        $this->database = $database;
-    }
-
-    public function getHost_info(): string {
-        return (string) $this->host_info;
-    }
-
-    public function geTotErro(): int {
-        return (int) $this->toerror;
+    public function getLastInsertId(): int {
+        return $this->lastInsertId;
     }
 
     public function getMsgErro(): string {
-        return (string) $this->msgErro;
+        return $this->msgErro;
     }
 
     public function getMsgInfo(): string {
-        return (string) $this->msgInfo;
+        return $this->msgInfo;
     }
 
     public function getNumrows(): int {
-        return (int) $this->numrows;
+        return $this->numrows;
     }
 
     public function getIsOk(): bool {
         return $this->isOk;
     }
-
-    function getLastInsertId() {
-        return $this->lastInsertId;
-    }
-
 }

@@ -29,7 +29,7 @@ class DaoGeneric {
         $conn = new Conexao();
         $sqlR = new SqlRules();
         $conn->sql = $sqlR->sqlVerGrupoFindIDu((int) $obj->getPkuser());
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array("idg" => $r["idg"], "usuario" => $r["usuario"], "grupo" => $r["grupo"], "limite" => $r["limite"]
                 , "consumido" => $r["consumido"]);
@@ -47,7 +47,7 @@ class DaoGeneric {
         else:
             $conn->sql = $sqlR->sqlListContasFindIDUserIDGroups(0, $idU);
         endif;
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("idg" => $dados["idg"], "idu" => $dados["idu"], "grupo" => $dados["grupo"], "usuario" => $dados["usuario"]
                 , "LimiteSetor" => $dados["LimiteSetor"]);
@@ -72,7 +72,7 @@ class DaoGeneric {
             $conn->sql = $sqlR->sqlVerGrupoFindIDgroupUsersBalance((int) $obj->getPkgroup());
             break;
         endswitch;
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array("id" => $r["id"], "idu" => $r["idu"], "idg" => $r["idg"], "idi" => $r["idi"], "usuario" => $r["usuario"]
                 , "grupo" => $r["grupo"], "limite" => $r["limite"], "consumido" => $r["consumido"], "disponivel" => $r["disponivel"], "impressora" => $r["impressora"]
@@ -84,7 +84,7 @@ class DaoGeneric {
     public function listContasUserFindIDGroupBalance(int $paramId) {
         $this->Array = null;
         $this->conn->sql = $this->sqlR->sqlVerGrupoFindIDgroupUsersBalance($paramId);
-        $ArrayPesquisa = $this->conn->montaArrayPesquisa();
+        $ArrayPesquisa = $this->conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array(
                 "idu" => $r["idu"]
@@ -102,7 +102,7 @@ class DaoGeneric {
         $conn = new Conexao();
         $sqlR = new SqlRules();
         $conn->sql = $sqlR->sqlSelctUserCotas((int) $obj->getUserid(), (int) $obj->getPrinterid());
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array("id" => $r["id"], "idu" => $r["idu"], "idg" => $r["idg"], "idi" => $r["idi"], "usuario" => $r["usuario"]
                 , "grupo" => $r["grupo"], "limite" => $r["limite"]
@@ -117,7 +117,7 @@ class DaoGeneric {
         $conn = new Conexao();
         $sqlR = new SqlRules();
         $conn->sql = $sqlR->sqlVerGrupoFindIDgroup((int) $obj->getPkgroup(), (int) 0);
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array("idu" => $r["idu"], "idg" => $r["idg"], "usuario" => $r["usuario"], "grupo" => $r["grupo"], "limite" => $r["limite"]
                 , "consumido" => $r["consumido"], "disponivel" => $r["disponivel"], "disponivelgeral" => $r["disponivelgeral"]);
@@ -131,7 +131,7 @@ class DaoGeneric {
         $conn = new Conexao();
         $conn->sql = "Select g.groupname as grupo, u.username as usuario, \"LimiteSetor\", g.id as idg, u.id as idu from \"Cotas_User\" as cu,groups as g, users as u "
                 . "where cu.pkgroup=g.id and cu.pkuser = u.id ;";
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("idg" => $dados["idg"], "idu" => $dados["idu"], "grupo" => $dados["grupo"], "usuario" => $dados["usuario"]
                 , "LimiteSetor" => $dados["LimiteSetor"]);
@@ -142,7 +142,7 @@ class DaoGeneric {
     public function listHistoricoUsuario($conditions): array {
         $this->Array = null;
         $this->conn->sql = $this->sqlRR->sqlHistoricoUsuario($conditions);
-        $arrayPesq = $this->conn->montaArrayPesquisa();
+        $arrayPesq = $this->conn->fetchArrayAssoc();
         foreach ($arrayPesq as $col):
             $this->Array[] = array("id" => $col["id"], "nome" => $col["nome"], "impressora" => $col["impressora"]
                 , "arquivo" => $col["arquivo"], "qtd_paginas" => $col["qtd_paginas"], "data" => $col["data"], "hostname" => $col["hostname"]);
@@ -156,7 +156,7 @@ class DaoGeneric {
         $sqlR = new SqlRules();
         $array = NULL;
         $conn->sql = $sqlR->sqlSelectModalAlterar($iduq, $idg);
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $array = array("iduq" => $r["iduq"], "usuario" => $r["usuario"]
                 , "impressora" => $r["impressora"], "limite" => $r["limite"]
@@ -171,7 +171,7 @@ class DaoGeneric {
         $sqlR = new SqlRules();
         $array = [];
         $conn->sql = $sqlR->sqlDetalheGeraisDeGrupos($id, array());
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $array = array("id" => $dados["id"], "grupo" => $dados["grupo"]
                 , "reponsavel" => $dados["reponsavel"], "limite" => $dados["limitesetor"]
@@ -188,7 +188,7 @@ class DaoGeneric {
         $sqlR = new SqlRules();
         $array = [];
         $conn->sql = $sqlR->sqlDetalheGeraisDeGruposBalance($id, array());
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $array = array("id" => $dados["id"], "grupo" => $dados["grupo"]
                 , "reponsavel" => $dados["reponsavel"], "limite" => $dados["limitesetor"]
@@ -205,7 +205,7 @@ class DaoGeneric {
         $conn = new Conexao();
         $sqlR = new SqlRules();
         $conn->sql = $sqlR->sqlPrintrsUsersArray($id);
-        $ArrayPesquisa = $conn->montaArrayPesquisa();
+        $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $dados):
             $this->Array[] = array("idu" => $dados["idu"],"iduq" => $dados["iduq"], "idp" => $dados["idp"], "nome" => $dados["nome"]);
         endforeach;

@@ -1,10 +1,6 @@
 <?php
-header("Content-Type: application/json; charset=utf-8");
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/Pykota/');
-
-define('ROOT_FILE', dirname(__FILE__).'/');
-define('ROOT_ADMIN', ROOT.'Admin');
-require ROOT.'vendor/autoload.php';
+header("Content-Type: application/json; charset=utf-8"); 
+require '../../vendor/autoload.php';
 
 //Classes de utilização
 /* Class Padrao */

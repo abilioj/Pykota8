@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/Pykota8/composer.json</file>
+            <file>file:/C:/wamp64/www/Pykota8/app/WS/config_json.php</file>
+            <file>file:/C:/wamp64/www/Pykota8/admin/view/Include/script.html</file>
+            <file>file:/C:/wamp64/www/Pykota8/admin/assets/js_json/Json_Index_Adm_Balance.js</file>
+            <file>file:/C:/wamp64/www/Pykota8/observacao.txt</file>
+            <file>file:/C:/wamp64/www/Pykota8/app/WS/JSON_ADMIN_INDEX_INFODATA.php</file>
+            <file>file:/C:/wamp64/www/Pykota8/README.md</file>
+            <file>file:/C:/wamp64/www/Pykota8/admin/view/Include/script_Util.html</file>
         </group>
     </open-files>
 </project-private>

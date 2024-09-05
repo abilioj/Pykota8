@@ -62,7 +62,7 @@ class DaoFull {
         $sql->limit = $limit; //
         $sql->TOP = $TOP; // TOP é o limit do SQL Serve
         $conn->sql = $sql->sqlPesquisar();
-        $arrayDados = $conn->montaArrayPesquisa();
+        $arrayDados = $conn->fetchArrayAssoc();
         $d = new Dados();
         if ($arrayDados != null) {
             $objmonta = new MontaDados();
@@ -89,7 +89,7 @@ class DaoFull {
         $sql->limit = $limit; //
         $sql->TOP = $top; //
         $conn->sql = $sql->sqlPesquisar();
-        return $arrayDados = (array) $conn->montaArrayPesquisa();
+        return $arrayDados = (array) $conn->fetchArrayAssoc();
     }
 
     public function Verificar($where, $ArrayTo) : bool {

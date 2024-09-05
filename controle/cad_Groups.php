@@ -3,7 +3,6 @@ require_once '../vendor/autoload.php';
 //groups
 // lstGroups.php frmGroups.php       controle/cad_Groups.php
 $service = new ConfigServerPHP();
-$service->Error_ReportingLogin();
 $service->Date_timezone_set();
 $data = new Data();
 
