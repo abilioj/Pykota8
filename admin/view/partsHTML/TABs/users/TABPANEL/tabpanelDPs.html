@@ -1,0 +1,20 @@
+<div role="tabpanel" class="tab-pane active" id="seccion0">
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-1 col-md-1 col-lg-1 control-label">
+            <strong class="text-red">*</strong>Nome</label>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <input type="text" name="username" value="{U->USERNAME}" class="form-control" {disabled}  placeholder="Digite o Nome" required>
+        </div>
+        <label class="col-xs-12 col-sm-1 col-md-1 col-lg-1 control-label">Email
+        </label>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <input type="text" name="email" value="{U->EMAIL}" class="form-control" {disabled}  placeholder="Digite o Email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-6 col-md-2 col-lg-2 control-label">Descrição</label>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <textarea name="description" class="textarea form-control" {disabled} >{U->DESCRIPTION}</textarea>
+        </div>
+    </div>
+</div>

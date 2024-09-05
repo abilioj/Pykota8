@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{lang}">
+    <head>
+        {HEAD}
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            {HRADER_MENU}
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <section class="content">
+                    <div class="row-fluid">
+                        <div class="box with-border">
+                            <div class="box-header">
+                                <div class="box-body">
+                                    <div class="box box-primary">
+                                        <div class="box-header">
+                                            <h4><i class="fa fa-angle-right"></i> {page} </h4>
+                                            <div class="row text-center"><div id="msg" class="msg"> {msg} </div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <div class="form-panel">
+                                    <form class="form-horizontal style-form" method="post" 
+                                          id="form" onsubmit="//return validarForm();"
+                                          action="{caminhos}controle/cad_{nomeControle}.php">
+                                        <input type="hidden" name="acao" value="s"/>
+                                        <input type="hidden" name="id" value="{P->ID}" id="id"/>
+
+                                        <div class="form-group margin-form-input-fg">
+                                            <label class="col-xs-12 col-sm-6 col-md-3 col-lg-2 control-label">Nome</label>
+                                            <div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 margin-form-input">
+                                                <input type="text" name="printername" class="form-control" {disabled} value="{P->PRINTERNAME}" placeholder="Digite o nome da impressora">
+                                            </div>
+                                            <label class="col-xs-12 col-sm-6 col-md-3 col-lg-2 control-label">Descrição</label>
+                                            <div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 margin-form-input">
+                                                <input type="text" name="description" class="form-control" {disabled} value="{P->DESCRIPTION}" placeholder="Digite o Descrição">
+                                            </div>
+                                            <label class="col-xs-12 col-sm-6 col-md-3 col-lg-2 control-label">Preço por Página</label>
+                                            <div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 margin-form-input">
+                                                <input type="text" name="priceperpage" class="form-control" {disabled} value="{P->PRICEPERPAGE}" placeholder="Digite o Preço por Página">
+                                            </div>
+                                        </div>
+                                        <div class="form-group margin-form-input-fg">
+                                            <label class="col-xs-12 col-sm-6 col-md-3 col-lg-2 control-label">Preço por Trabalho</label>
+                                            <div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 margin-form-input">
+                                                <input type="text" name="priceperjob" class="form-control" {disabled} value="{P->PRICEPERJOB}" placeholder="Digite o Preço por Trabalho">
+                                            </div>
+                                            <label class="col-xs-12 col-sm-6 col-md-3 col-lg-2 control-label">Tamanho Máximo de Trabalho</label>
+                                            <div class="col-xs-12 col-sm-9 col-md-8 col-lg-9 margin-form-input">
+                                                <input type="text" name="maxjobsize" class="form-control" {disabled} value="{P->MAXJOBSIZE}" placeholder="Digite o Tamanho Máximo de Trabalho">
+                                            </div>
+                                        </div>
+                                        
+                                        <hr/>
+                                        {BTN_FORNFULL}
+                                    </form>
+
+                                        <div class="form-group margin-form-input-fg">
+                                            <label class="col-xs-12 col-sm-3 col-md-3 col-lg-2 control-label">Endereço IP</label>
+                                            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8 margin-form-input">
+                                                <input type="text" name="ip" id="ip" class="form-control" {disabled} value="{ip}" placeholder="Digite o ip">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 ">
+                                                <button class="form-control btn btn-primary" id="btn-incluir">Incluir IP</button>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            {FOOTER}
+        </div>
+
+        {SCRIPT_UTIL}
+
+        {SCRIPT}
+        <script src="{caminho}assets/js_json/json_frmPrinters.js" ></script>
+    </body>
+</html>

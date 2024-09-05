@@ -1,0 +1,6 @@
+{
+    "name": "APP_PYKOTA"
+    ,"version":"0.1"
+    ,"PHP_minima":">=7.2"
+    ,"PHP_atual":"7.3"
+}

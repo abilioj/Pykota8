@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="{lang}">
+    <head>
+        {HEAD}
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper">
+            {HRADER_MENU}
+            <div class="content-wrapper">
+                <!-- Seção principal -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="box with-border">
+                                <div class="box-header">
+                                    {PARTSFORMDASHBOARD}                                                    
+                                </div>
+                                <div class="box-body">
+                                    <div id="msg"></div>
+                                        <div class="row text-center">
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-aqua">
+                                                    <div class="inner">
+                                                        <h3 id="jan">0</h3>
+                                                        <p>JAN</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-green">
+                                                    <div class="inner">
+                                                        <h3 id="fev">0</h3>
+                                                        <p>FEV</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-yellow">
+                                                    <div class="inner">
+                                                        <h3 id="mar">0</h3>
+                                                        <p>MAR</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-red">
+                                                    <div class="inner">
+                                                        <h3 id="abr">0</h3>
+                                                        <p>ABR</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                        </div>
+                                        <div class="row text-center">
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-aqua">
+                                                    <div class="inner">
+                                                        <h3 id="mai">0</h3>
+                                                        <p>MAI</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-green">
+                                                    <div class="inner">
+                                                        <h3 id="jun">0</h3>
+                                                        <p>JUN</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-yellow">
+                                                    <div class="inner">
+                                                        <h3 id="jul">0</h3>
+                                                        <p>JUL</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-red">
+                                                    <div class="inner">
+                                                        <h3 id="ago">0</h3>
+                                                        <p>AGO</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                        </div>
+                                        <div class="row text-center">
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-aqua">
+                                                    <div class="inner">
+                                                        <h3 id="set">0</h3>
+                                                        <p>SET</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-green">
+                                                    <div class="inner">
+                                                        <h3 id="out">0</h3>
+                                                        <p>OUT</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-yellow">
+                                                    <div class="inner">
+                                                        <h3 id="nov">0</h3>
+                                                        <p>NOV</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                            <div class="col-lg-3 col-xs-6">
+                                                <!-- small box -->
+                                                <div class="small-box bg-red">
+                                                    <div class="inner">
+                                                        <h3 id="dez">0</h3>
+                                                        <p>DEV</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ./col -->
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            {FOOTER}
+        </div>
+        <!-- /.wrapper -->
+        {SCRIPT_UTIL}
+        {SCRIPT}
+        {SCRIPT_CHAR}
+        <script src="{caminho}assets/js/Grafico_configs.js"></script>
+        <script src="{caminho}assets/js_json/Json_EstatisticaMesal.js"></script>
+        <script type="text/javascript">
+            Refet(1, 6000);
+        </script>
+    </body>
+</html>

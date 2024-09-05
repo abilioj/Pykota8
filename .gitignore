@@ -1,6 +1,6 @@
 #$ cat .gitignore
 
-/*.txt
+*.txt
 /[Tt]mp/
 
 # -- NetBeans --

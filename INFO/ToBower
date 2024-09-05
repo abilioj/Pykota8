@@ -1,0 +1,7 @@
+bower install --save jquery
+bower install --save jszip
+bower install --save pdfmake
+bower install --save datatables.net-dt
+bower install --save datatables.net-responsive-dt
+bower install --save datatables.net-editor-dt
+bower install --save datatables.net-buttons-dt

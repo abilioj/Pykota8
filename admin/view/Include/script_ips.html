@@ -1,0 +1,27 @@
+<!--<script src="{url_adm}assets/js_json/Json_ips.js"></script>-->
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $('#dataTablesListIPS').DataTable({
+            "data": null,
+            "responsive": true,
+            "language": {
+                "url": "assets/language/datatables/Portuguese-Brasil.json"
+            },
+//            "pagingType": "full_numbers",
+            "stateSave": false,
+            "processing": true,
+            "serverSide": false
+            , "columnDefs": [
+                {
+                    "targets": [2,3,6,8,9,11]
+                    , "visible": false
+                }
+            ]
+        });
+
+    });
+</script>

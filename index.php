@@ -1,5 +1,5 @@
 <?php
-// header('location: ./admin/');
+ header('location: ./admin/');
 //require './vendor/autoload.php';
 
-echo 'pykota php8';
+//echo 'pykota php8';
