@@ -1,5 +1,5 @@
 {
-    "name": "pykota8",
+    "name": "pykota/pykota8",
     "description": "Description of project pykota8.",
     "authors": [
         {
@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "php": ">8.3.0"
+        "php": ">=8.3.0"
     },
     "autoload": {
         "classmap": [
