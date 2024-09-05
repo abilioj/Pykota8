@@ -1,0 +1,13 @@
+{
+    "name": "pykota8",
+    "description": "Description of project pykota8.",
+    "authors": [
+        {
+            "name": "abilioj",
+            "email": "ajgfqbu@gmail.here"
+        }
+    ],
+    "require": {
+        "php": ">8.3.0"
+    }
+}
