@@ -55,7 +55,7 @@ switch ($acao):
     case 3:
         $dadosMultiplos = [];
         $conn->sql = $sqlR->sqlSelectPrinters();
-        $printersArray = $conn->RsutArrayCLASSTYPE();
+        $printersArray = $conn->fetchArrayCLASSTYPE();
 
         foreach ($printersArray as $d):
             if (!$daoUQ->fucaoVerificarDefull(array("uq.userid=" . $idU, "uq.printerid=" . $d[2])))

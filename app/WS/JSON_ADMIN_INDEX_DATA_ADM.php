@@ -38,7 +38,7 @@ $conn->sql = $sql_tb;
 
 //execlute
 $result = $conn->fetchArrayAssoc();
-$row = $conn->linhasPesquisadas("select");
+
 if ($result != null):
     foreach ($result as $r):
         $dados["data"][] = array($r["idg"], $r["idu"], $r["idp"], $r["usuario"], ($r["grupo"]=='0') ? '<b>Sem Vinculação Em Grupo</b>': $r["grupo"], $r["impressora"],$r['limite'],$r['cota']);

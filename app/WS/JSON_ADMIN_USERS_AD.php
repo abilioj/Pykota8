@@ -2,8 +2,8 @@
 require './config_json.php';
 
 //Classes de utilização
-$Service->Default_charset();
-$Service->Error_Reporting();
+//$Service->Default_charset();
+// $Service->Error_Reporting();
 
 //variavel Class
 $daoAG = new DaoArrayGeneric();
