@@ -21,7 +21,7 @@ $ano = (string) Request::Do_REQUEST('ano', $resuDefat);
 $sql_tb = $sqlR->sqlEstatisticaMesal($ano);
 $conn->sql = $sql_tb;
 
-$result = $conn->montaArrayPesquisa();
+$result = $conn->fetchArrayAssoc();
 $row = $conn->linhasPesquisadas("select");
 if ($result != null):
     foreach ($result as $r):

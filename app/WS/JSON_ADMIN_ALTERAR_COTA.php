@@ -68,7 +68,7 @@ switch ($acao) {
         else:
             $conn->sql = $sqlR->sqlVerLimiteGrupo($idG);
         endif;
-        $ArrayUser = $conn->montaArrayPesquisa();
+        $ArrayUser = $conn->fetchArrayAssoc();
         foreach ($ArrayUser as $v):
             $dados['userLimite'][] = ["limite" => (int) $v["limite"]];
         endforeach;

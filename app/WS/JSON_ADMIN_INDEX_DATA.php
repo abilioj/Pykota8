@@ -36,7 +36,7 @@ endif;
 $sql_tb = $sqlR->sqlHomeUsersII($arrayWhere);
 $conn->sql = $sql_tb;
 //execlute
-$result = $conn->montaArrayPesquisa();
+$result = $conn->fetchArrayAssoc();
 $row = $conn->linhasPesquisadas("select");
 if ($result != null):
     foreach ($result as $r):

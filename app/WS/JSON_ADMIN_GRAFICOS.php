@@ -43,7 +43,7 @@ switch ($op):
         else:
             $conn->sql = $sqlRR->SqlViewEstatistica_imprecao_mes_por_anoErespopnsavel(0, $ano);
         endif;
-        $array_dados = $conn->montaArrayPesquisa();
+        $array_dados = $conn->fetchArrayAssoc();
         $rowQDD = $conn->CountRow();
         if ($array_dados != null):
             if ($idg > 0):
