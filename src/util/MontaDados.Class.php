@@ -67,13 +67,19 @@ class MontaDados {
                 for ($y = 0; $y < $qtdColunas; $y++) {
                     $col = $this->colunas[$y];
                     list($apelido, $nome) = explode(".", $col);
-                    if ($this->ArrayCamposOcutar[$b] == $nome):
-                        $t .= "<td class='column_hidden'>";
-                        $b++;
-                        $Con = 0;
+
+                    if (!is_null($this->ArrayCamposOcutar)):
+                        if ($this->ArrayCamposOcutar[$b] == $nome):
+                            $t .= "<td class='column_hidden'>";
+                            $b++;
+                            $Con = 0;
+                        else:
+                            $t .= "<td>";
+                        endif;
                     else:
                         $t .= "<td>";
                     endif;
+
                     if ($y == $qtdColunas - 1) {
                         if ($con == 0) {
                             $t .= "<input type='hidden' class='IDRa' value='" . $dados["{$nome}"] . "'>";
@@ -126,25 +132,34 @@ class MontaDados {
                         if ($con == 9) {
                             $t .= "<a href='" . $link . "?acao=a&id=" . $dados["{$nome}"] . $LinkParametros . "' title='Editar'><li class='fa fa-edit fa-2x fa-cor-green'></li></a>";
                         }
-                        if($Con == 10){
-                            $t .= "<a href='" . $link . "?acao=e&id=" . $dados["{$nome}"] . $LinkParametros . "'" . 'onclick="return confirm(' . "'Deseja realmente Excluir?'" . ')"' . "  title='Remover'><li class='fa fa-trash-o fa-2x fa-cor-red '></li></a>";                            
+                        if ($Con == 10) {
+                            $t .= "<a href='" . $link . "?acao=e&id=" . $dados["{$nome}"] . $LinkParametros . "'" . 'onclick="return confirm(' . "'Deseja realmente Excluir?'" . ')"' . "  title='Remover'><li class='fa fa-trash-o fa-2x fa-cor-red '></li></a>";
                         }
                     } else {
-                        if ($this->ArrayCampos[$i] == $nome):
-                            foreach ($this->ArrayCamposValor[$i] as $d):
-                                if ($dados["{$nome}"] == $d["id"]):
-                                    $t .= $d["value"];
-                                endif;
-                            endforeach;
-                            $i++;
-                        else:
-                            if ($this->CampoData[$a] == $nome) {
-                                $d = new Data();
-                                $t .= $d->data_mysql_para_user($dados["{$nome}"]);
-                                $a++;
-                            } else {
+
+                        if (!is_null($this->ArrayCampos)):
+                            if ($this->ArrayCampos[$i] == $nome):
+                                foreach ($this->ArrayCamposValor[$i] as $d):
+                                    if ($dados["{$nome}"] == $d["id"]):
+                                        $t .= $d["value"];
+                                    endif;
+                                endforeach;
+                                $i++;
+                            else:
                                 $t .= $dados["{$nome}"];
-                            }
+                            endif;
+                        else:
+                            if (!is_null($this->CampoData)):
+                                if ($this->CampoData[$a] == $nome):
+                                    $d = new Data();
+                                    $t .= $d->data_mysql_para_user($dados["{$nome}"]);
+                                    $a++;
+                                else:
+                                    $t .= $dados["{$nome}"];
+                                endif;
+                            else:
+                                $t .= $dados["{$nome}"];
+                            endif;
                         endif;
                     }
                     $t .= "</td>";
@@ -157,7 +172,7 @@ class MontaDados {
         return $t;
     }
 
-    public function pegaDados() : Dados {
+    public function pegaDados(): Dados {
         $d = new Dados();
         $qtdColunas = count($this->colunas); //QUANTIDADE DE COLUNAS
         $qtdDados = count($this->dados); //QUANTIDADE  DE DADOS
@@ -170,5 +185,4 @@ class MontaDados {
         }
         return $d;
     }
-
 }
