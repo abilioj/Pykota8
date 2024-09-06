@@ -21,28 +21,28 @@ class URI
 	 * @var string | $protocolo
 	 * @access private
 	 */
-	static private $protocolo;
+	private static string $protocolo;
 
 	/**
 	 * $host
 	 * @var string | $host
 	 * @access private
 	 */
-	static private $host;
+	private static string $host;
 
 	/**
 	 * $scriptName
 	 * @var string | $scriptName
 	 * @access private
 	 */
-	static private $scriptName;
+	private static string $scriptName;
 
 	/**
 	 * $finalBase
 	 * @var string | $finalBase
 	 * @access private
 	 */
-	static private $finalBase;
+	private static string $finalBase;
 
 	
 	/**
@@ -53,18 +53,15 @@ class URI
 	 * @return string | Ex: http://... - https://...
 	 * @access protected
 	 */
-	protected function Protocolo()
+	protected static function Protocolo(): string
 	{
 		/**
 		 * Faz a verificação se for
 		 * diferente de https
 		 */
-		if(strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === false)
-		{
+		if (strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === false) {
 			self::$protocolo = 'http://'; //Atribui o valor http
-		}
-		else
-		{
+		} else {
 			self::$protocolo = 'https://'; //Atribui o valor https
 		}
 
@@ -83,7 +80,7 @@ class URI
 	 * @return string | Ex: www.example.com.br
 	 * @access protected
 	 */
-	protected function Host()
+	protected static function Host(): string
 	{
 		self::$host = $_SERVER['HTTP_HOST']; //Atribui o valor www.example.com.br
 
@@ -102,7 +99,7 @@ class URI
 	 * @return string | Ex: .../dir/index.php
 	 * @access protected
 	 */
-	protected function scriptName()
+	protected static function scriptName(): string
 	{
 		/**
 		 * $scr
@@ -118,12 +115,9 @@ class URI
 		 * o objetivo aqui é pegar o nível de pasta onde hospeda-se o diretório
 		 * caso ele exista.
 		 */
-		if(!empty($scr) || substr_count($scr, '/') > 1)
-		{
+		if (!empty($scr) || substr_count($scr, '/') > 1) {
 			self::$scriptName = $scr . '/'; //atribui o valor do diretório com uma "/" na sequência
-		}
-		else
-		{
+		} else {
 			self::$scriptName = ''; //atribui um valor vazio
 		}
 
@@ -139,10 +133,10 @@ class URI
 	 * ----------------------------------------------
 	 * 			Monta a url base e retorna
 	 * ----------------------------------------------
-	 * @return [type] [description]
+	 * @return string
 	 * @access public
 	 */
-	public function base()
+	public static function base(): string
 	{
 		//Concatena os valores
 		self::$finalBase = self::Protocolo() . self::Host() . self::scriptName();
@@ -154,3 +148,4 @@ class URI
 		return self::$finalBase;
 	}
 }
+
