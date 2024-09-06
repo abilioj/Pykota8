@@ -436,7 +436,7 @@ namespace _lib\raelgc\view {
 							$pointer = $value;
 						}
 						// Replacing value
-						$s = str_replace("{".$var.$properties."}", $pointer, $s);
+						$s = str_replace("{".$var.$properties."}", (string) $pointer, $s);
 						// Object with modifiers
 						if(isset($this->modifiers[$var.$properties])){
 							foreach($this->modifiers[$var.$properties] as $exp){
