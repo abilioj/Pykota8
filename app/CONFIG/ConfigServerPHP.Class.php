@@ -18,19 +18,23 @@ class ConfigServerPHP {
 
     function __construct() {
         $confiBD = new ConfigBDClass();
+        
         $this->NameApp = "pykota";
         if ($confiBD->getOptDB() == 0):$this->NameSESSION = "App" . $this->NameApp . "DEV";
         endif;
         if ($confiBD->getOptDB() == 1):$this->NameSESSION = "App" . $this->NameApp . "";
         endif;
+        
 //        Valor padrão: E_ALL & ~ E_NOTICE & ~ E_STRICT & ~ E_DEPRECATED
 //        Valor de desenvolvimento: E_ALL ou E_ALL & ~ E_NOTICE"
+        $this->error_reporting = E_ALL;
+        
 //        Valor da Produção: E_ALL & ~ E_DEPRECATED & ~ E_STRICT ou E_ALL & ~ E_NOTICE"
-        $this->error_reporting = "E_ALL & ~ E_DEPRECATED & ~ E_STRICT";
-//        $this->error_reporting = "E_ALL";
+//        $this->error_reporting = E_ALL & ~ E_DEPRECATED & ~ E_STRICT;
+        
         $this->date_default_timezone_set = "America/Sao_Paulo";
         //Valor de desenvolvimento: 1 - On :: Valor de produção: 0 - Off
-        $this->display_errors = (int) 0;
+        $this->display_errors = (int) 1;
         $this->log_errors = (int) 0;
         $this->default_charset = "UTF-8";
         $this->oCpDP = 1; //desenvolvimento: 0 :: Valor de produção: 1
@@ -52,7 +56,7 @@ class ConfigServerPHP {
      * deprec
      */
     public function Error_Reporting() {
-        error_reporting($this->error_reporting);
+        ini_set('aerror_reporting', $this->error_reporting);
     }
 
     public function Error_ReportingLogin() {
