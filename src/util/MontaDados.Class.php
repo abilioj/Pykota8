@@ -31,27 +31,43 @@ class MontaDados {
                 for ($y = 0; $y < $qtdColunas; $y++) {
                     $col = $this->colunas[$y];
                     list($apelido, $nome) = explode(".", $col);
-                    if ($this->ArrayCamposOcutar[$b] == $nome):
-                        $t .= "<td class='column_hidden'>";
-                        $b++;
+
+                    if (!is_null($this->ArrayCamposOcutar)):
+                        if ($this->ArrayCamposOcutar[$b] === $nome):
+                            $t .= "<td class='column_hidden'>";
+                            $b++;
+                        else:
+                            $t .= "<td>";
+                        endif;
                     else:
                         $t .= "<td>";
                     endif;
-                    if ($this->ArrayCampos[$i] == $nome):
-                        foreach ($this->ArrayCamposValor[$i] as $d):
-                            if ($dados["{$nome}"] == $d["VALOR"]):
-                                $t .= $d["TEXT"];
-                            endif;
-                        endforeach;
-                        $i++;
-                    else:
-                        if ($this->CampoData[$a] == $nome) {
-                            $d = new Data();
-                            $t .= $d->data_mysql_para_user($dados["{$nome}"]);
-                            $a++;
-                        } else {
+
+                    if (!is_null($this->ArrayCampos)):
+                        if ($this->ArrayCampos[$i] == $nome):
+                            foreach ($this->ArrayCamposValor[$i] as $d):
+                                if ($dados["{$nome}"] == $d["VALOR"]):
+                                    $t .= $d["TEXT"];
+                                endif;
+                            endforeach;
+                            $i++;
+                        else:
                             $t .= $dados["{$nome}"];
-                        }
+                        endif;
+                    else:
+
+                        if (!is_null($this->CampoData)):
+                            if ($this->CampoData[$a] == $nome):
+                                $d = new Data();
+                                $t .= $d->data_mysql_para_user($dados["{$nome}"]);
+                                $a++;
+                            else:
+                                $t .= $dados["{$nome}"];
+                            endif;
+                        else:
+                            $t .= $dados["{$nome}"];
+                        endif;
+
                     endif;
                     $t .= "</td>";
                 }
