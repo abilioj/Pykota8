@@ -7,60 +7,59 @@
  */
 class AcessoLoginWS {
 
-    private $id;
-    private $idusuario;
-    private $tempo;
-    private $dataaccesslogin;
-    private $isok;
+    private function __construct(
+        private int $id = 0,
+        private int $idusuario = 0,
+        private int $tempo = 1,
+        private string $dataaccesslogin = '',
+        private bool $isok = true,
+    ) {}
 
-    function __construct() {        
-    }
-
-    public function setDefault() {
+    public function setDefault() : void {
         $d = new Data();
         $this->tempo = 1;
         $this->dataaccesslogin = $d->dataEhora_atual_en();
         $this->isok = true;
     }
     
-    function getId() {
-        return (int) $this->id;
+    public function getId(): int {
+        return $this->id;
     }
 
-    function getTempo() {
-        return (int) $this->tempo;
+    public function getTempo(): int {
+        return $this->tempo;
     }
 
-    function getDataaccesslogin() {
+    public function getDataaccesslogin(): string {
         return $this->dataaccesslogin;
     }
 
-    function getIdusuario() {
-        return (int) $this->idusuario;
+    public function getIdusuario(): int {
+        return $this->idusuario;
     }
 
-    function getIsok() {
-        return (bool) $this->isok;
+    public function getIsok(): bool {
+        return $this->isok;
     }
 
-    function setId(int $id) {
+    function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setTempo(int $tempo) {
+    function setTempo(int $tempo): void {
         $this->tempo = $tempo;
     }
 
-    function setDataaccesslogin($dataaccesslogin) {
+    function setDataaccesslogin($dataaccesslogin): void {
         $this->dataaccesslogin = $dataaccesslogin;
     }
 
-    function setIdusuario(int $idusuario) {
+    function setIdusuario(int $idusuario): void {
         $this->idusuario = $idusuario;
     }
 
-    function setIsok(bool $isok) {
+    function setIsok(bool $isok): void {
         $this->isok = $isok;
     }
-
 }
+

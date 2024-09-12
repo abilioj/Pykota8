@@ -6,53 +6,53 @@
  */
 class Payments {
     
-    private $id;
-    private $userid;
-    private $amount;
-    private $description;
-    private $date;
-    
-    function __construct() {        
+    public function __construct(
+        private int $id = 0,
+        private int $userid = 0,
+        private float $amount = 0.0,
+        private string $description = '',
+        private DateTime $date = new DateTime()
+    ) {
     }
 
-    function getId() {
+    public function getId(): int {
         return $this->id;
     }
 
-    function getUserid() {
+    public function getUserid(): int {
         return $this->userid;
     }
 
-    function getAmount() {
+    public function getAmount(): float {
         return $this->amount;
     }
 
-    function getDescription() {
+    public function getDescription(): string {
         return $this->description;
     }
 
-    function getDate() {
+    public function getDate(): DateTime {
         return $this->date;
     }
 
-    function setId($id) {
+    public function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setUserid($userid) {
+    public function setUserid(int $userid): void {
         $this->userid = $userid;
     }
 
-    function setAmount($amount) {
+    public function setAmount(float $amount): void {
         $this->amount = $amount;
     }
 
-    function setDescription($description) {
+    public function setDescription(string $description): void {
         $this->description = $description;
     }
 
-    function setDate($date) {
+    public function setDate(DateTime $date): void {
         $this->date = $date;
     }
-
 }
+

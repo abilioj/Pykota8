@@ -7,80 +7,78 @@
  */
 class Login {
     
-    private $id;
-    private $login;
-    private $senha;
-    private $email;
-    private $cpf;
-    private $nivel;
-    private $pkgroup;
-    private $status;
-    
-    function __construct() {        
-    }
+    public function __construct(
+        private int $id,
+        private string $login,
+        private string $senha,
+        private string $email,
+        private int $cpf,
+        private int $nivel,
+        private int $pkgroup,
+        private int $status,
+    ) {}
 
-    function getId() {
+    public function getId(): int {
         return $this->id;
     }
 
-    function getLogin() {
+    public function getLogin(): string {
         return $this->login;
     }
 
-    function getSenha() {
+    public function getSenha(): string {
         return $this->senha;
     }
 
-    function getEmail() {
+    public function getEmail(): string {
         return $this->email;
     }
 
-    function getCpf() {
+    public function getCpf(): int {
         return $this->cpf;
     }
 
-    function getNivel() {
+    public function getNivel(): int {
         return $this->nivel;
     }
 
-    function getPkgroup() {
+    public function getPkgroup(): int {
         return $this->pkgroup;
     }
 
-    function getStatus() {
+    public function getStatus(): int {
         return $this->status;
     }
 
-    function setId($id) {
+    public function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setLogin($login) {
+    public function setLogin(string $login): void {
         $this->login = $login;
     }
 
-    function setSenha($senha) {
+    public function setSenha(string $senha): void {
         $this->senha = $senha;
     }
 
-    function setEmail($email) {
+    public function setEmail(string $email): void {
         $this->email = $email;
     }
 
-    function setCpf($cpf) {
+    public function setCpf(int $cpf): void {
         $this->cpf = $cpf;
     }
 
-    function setNivel($nivel) {
+    public function setNivel(int $nivel): void {
         $this->nivel = $nivel;
     }
 
-    function setPkgroup($pkgroup) {
+    public function setPkgroup(int $pkgroup): void {
         $this->pkgroup = $pkgroup;
     }
 
-    function setStatus($status) {
+    public function setStatus(int $status): void {
         $this->status = $status;
     }
-
 }

@@ -6,44 +6,43 @@
  */
 class Groups {
     
-    private $id;
-    private $groupname;
-    private $description;
-    private $limitby;
-    
-    function __construct() {        
+    public function __construct(
+        private int $id = 0,
+        private string $groupname =  '',
+        private string $description = '',
+        private string $limitby = '',
+    ) {}
+
+    public function getId(): int {
+        return $this->id;
     }
 
-    function getId() : int {
-        return (int)$this->id;
+    public function getGroupname(): string {
+        return $this->groupname;
     }
 
-    function getGroupname() : string {
-        return (string)$this->groupname;
+    public function getDescription(): string {
+        return $this->description;
     }
 
-    function getDescription() : string {
-        return (string) $this->description;
+    public function getLimitby(): string {
+        return $this->limitby;
     }
 
-    function getLimitby() : string{
-        return (string)$this->limitby;
+    public function setId(int $id): void {
+        $this->id = $id;
     }
 
-    function setId(int $id) {
-        $this->id = (int) $id;
+    public function setGroupname(string $groupname): void {
+        $this->groupname = $groupname;
     }
 
-    function setGroupname(string $groupname) {
-        $this->groupname = (string) $groupname;
+    public function setDescription(string $description): void {
+        $this->description = $description;
     }
 
-    function setDescription(string $description) {
-        $this->description = (string) $description;
-    }
-
-    function setLimitby(string $limitby) {
-        $this->limitby = (string) $limitby;
+    public function setLimitby(string $limitby): void {
+        $this->limitby = $limitby;
     }
 
 }

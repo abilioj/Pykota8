@@ -5,75 +5,71 @@
  * @author abilio.jose
  */
 class Printers {
-    
-    private $id;
-    private $printername;
-    private $description;
-    private $priceperpage;
-    private $priceperjob;
-    private $passthrough;
-    private $maxjobsize; 
-    
-    function __construct() {
-        $this->id = 0;
-        $this->passthrough = false;
-        $this->maxjobsize = 0;
-    }
-    
-    function getId() : int {
-        return (int) $this->id;
+
+    public function __construct(
+        private int $id = 0,
+        private string $printername = '',
+        private string $description = '',
+        private float $priceperpage = 0.0,
+        private float $priceperjob = 0.0,
+        private bool $passthrough = false,
+        private int $maxjobsize = 0,
+    ) {}
+
+    public function getId(): int {
+        return $this->id;
     }
 
-    function getPrintername() : string {
-        return (string) $this->printername;
-    }
-
-    function getDescription() : string {
-        return (string) $this->description;
-    }
-
-    function getPriceperpage() : float {
-        return (float) $this->priceperpage;
-    }
-
-    function getPriceperjob() : float {
-        return (float) $this->priceperjob;
-    }
-
-    function getPassthrough() : bool {
-        return (bool) $this->passthrough;
-    }
-
-    function getMaxjobsize() : int {
-        return (int) $this->maxjobsize;
-    }
-
-    function setId(int $id) {
+    public function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setPrintername(string $printername) {
+    public function getPrintername(): string {
+        return $this->printername;
+    }
+
+    public function setPrintername(string $printername): void {
         $this->printername = $printername;
     }
 
-    function setDescription(string $description) {
+    public function getDescription(): string {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): void {
         $this->description = $description;
     }
 
-    function setPriceperpage(float $priceperpage) {
+    public function getPriceperpage(): float {
+        return $this->priceperpage;
+    }
+
+    public function setPriceperpage(float $priceperpage): void {
         $this->priceperpage = $priceperpage;
     }
 
-    function setPriceperjob(float $priceperjob) {
+    public function getPriceperjob(): float {
+        return $this->priceperjob;
+    }
+
+    public function setPriceperjob(float $priceperjob): void {
         $this->priceperjob = $priceperjob;
     }
 
-    function setPassthrough(bool $passthrough) {
+    public function getPassthrough(): bool {
+        return $this->passthrough;
+    }
+
+    public function setPassthrough(bool $passthrough): void {
         $this->passthrough = $passthrough;
     }
 
-    function setMaxjobsize(int $maxjobsize) {
-        $this->maxjobsize = $maxjobsize;
+    public function getMaxjobsize(): int {
+        return $this->maxjobsize;
     }
 
+    public function setMaxjobsize(int $maxjobsize): void {
+        $this->maxjobsize = $maxjobsize;
+    }
 }
+

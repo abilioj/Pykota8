@@ -1,129 +1,153 @@
 <?php
 
-class Usuario {
+class Usuario
+{
 
-    private $id;
-    private $nome;
-    private $login;
-    private $senha;
-    private $telefone;
-    private $email;
-    private $datacadastro;
-    private $dataalteracao;
-    private $dataultimologin;
-    private $foto;
-    private $nivel;
-    private $status;
-    private $tipo;
-    
-    public function __construct() {
-        
-    }
+    public function __construct(
+        private int $id = 0,
+        private string $nome = '',
+        private string $login = '',
+        private string $senha = '',
+        private string $telefone = '',
+        private string $email = '',
+        private string $datacadastro = '',
+        private string $dataalteracao = '',
+        private string $dataultimologin = '',
+        private string $foto = '',
+        private int $nivel = 0,
+        private int $status = 0,
+        private int $tipo = 0,
+    ) {}
 
-    function getId() {
+    public function getId(): int
+    {
         return $this->id;
     }
 
-    function getNome() {
+    public function getNome(): string
+    {
         return $this->nome;
     }
 
-    function getLogin() {
+    public function getLogin(): string
+    {
         return $this->login;
     }
 
-    function getSenha() {
+    public function getSenha(): string
+    {
         return $this->senha;
     }
 
-    function getTelefone() {
+    public function getTelefone(): string
+    {
         return $this->telefone;
     }
 
-    function getEmail() {
+    public function getEmail(): string
+    {
         return $this->email;
     }
 
-    function getDatacadastro() {
+    public function getDatacadastro(): string
+    {
         return $this->datacadastro;
     }
 
-    function getDataalteracao() {
+    public function getDataalteracao(): string
+    {
         return $this->dataalteracao;
     }
 
-    function getDataultimologin() {
+    public function getDataultimologin(): string
+    {
         return $this->dataultimologin;
     }
 
-    function getFoto() {
+    public function getFoto(): string
+    {
         return $this->foto;
     }
 
-    function getNivel() {
+    public function getNivel(): int
+    {
         return $this->nivel;
     }
 
-    function getStatus() {
+    public function getStatus(): int
+    {
         return $this->status;
     }
 
-    function getTipo() {
+    public function getTipo(): int
+    {
         return $this->tipo;
     }
 
-    function setId($id) {
+    public function setId(int $id): void
+    {
         $this->id = $id;
     }
 
-    function setNome($nome) {
+    public function setNome(string $nome): void
+    {
         $this->nome = $nome;
     }
 
-    function setLogin($login) {
+    public function setLogin(string $login): void
+    {
         $this->login = $login;
     }
 
-    function setSenha($senha) {
+    public function setSenha(string $senha): void
+    {
         $this->senha = $senha;
     }
 
-    function setTelefone($telefone) {
+    public function setTelefone(string $telefone): void
+    {
         $this->telefone = $telefone;
     }
 
-    function setEmail($email) {
+    public function setEmail(string $email): void
+    {
         $this->email = $email;
     }
 
-    function setDatacadastro($datacadastro) {
+    public function setDatacadastro(string $datacadastro): void
+    {
         $this->datacadastro = $datacadastro;
     }
 
-    function setDataalteracao($dataalteracao) {
+    public function setDataalteracao(string $dataalteracao): void
+    {
         $this->dataalteracao = $dataalteracao;
     }
 
-    function setDataultimologin($dataultimologin) {
+    public function setDataultimologin(string $dataultimologin): void
+    {
         $this->dataultimologin = $dataultimologin;
     }
 
-    function setFoto($foto) {
+    public function setFoto(string $foto): void
+    {
         $this->foto = $foto;
     }
 
-    function setNivel($nivel) {
+    public function setNivel(int $nivel): void
+    {
         $this->nivel = $nivel;
     }
 
-    function setStatus($status) {
+    public function setStatus(int $status): void
+    {
         $this->status = $status;
     }
 
-    function setTipo($tipo) {
+    public function setTipo(int $tipo): void
+    {
         $this->tipo = $tipo;
     }
-
 
 }
 

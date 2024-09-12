@@ -6,188 +6,187 @@
  */
 class Jobhistory {
      
-    private $id;
-    private $jobid;
-    private $userid;
-    private $printerid;
-    private $pagecounter;
-    private $jobsizebytes;
-    private $jobsize;
-    private $jobprice;
-    private $action;
-    private $filename;
-    private $title;
-    private $copies;
-    private $options;
-    private $hostname;
-    private $md5sum;
-    private $pages;
-    private $billingcode;
-    private $precomputedjobsize;
-    private $precomputedjobprice;
-    private $jobdate;
-    
-    function __construct() {        
+    public function __construct(
+        private int $id = 0,
+        private int $jobid = 0,
+        private int $userid = 0,
+        private int $printerid = 0,
+        private int $pagecounter = 0,
+        private int $jobsizebytes = 0,
+        private float $jobsize = 0.0,
+        private float $jobprice = 0.0,
+        private string $action = '',
+        private string $filename = '',
+        private string $title = '',
+        private int $copies = 0,
+        private string $options = '',
+        private string $hostname = '',
+        private string $md5sum = '',
+        private int $pages = 0,
+        private string $billingcode = '',
+        private ?int $precomputedjobsize = null,
+        private ?float $precomputedjobprice = null,
+        private ?string $jobdate = null,
+    ) {
     }
 
-    function getId() {
+    public function getId(): int {
         return $this->id;
     }
 
-    function getJobid() {
+    public function getJobid(): int {
         return $this->jobid;
     }
 
-    function getUserid() {
+    public function getUserid(): int {
         return $this->userid;
     }
 
-    function getPrinterid() {
+    public function getPrinterid(): int {
         return $this->printerid;
     }
 
-    function getPagecounter() {
+    public function getPagecounter(): int {
         return $this->pagecounter;
     }
 
-    function getJobsizebytes() {
+    public function getJobsizebytes(): int {
         return $this->jobsizebytes;
     }
 
-    function getJobsize() {
+    public function getJobsize(): float {
         return $this->jobsize;
     }
 
-    function getJobprice() {
+    public function getJobprice(): float {
         return $this->jobprice;
     }
 
-    function getAction() {
+    public function getAction(): string {
         return $this->action;
     }
 
-    function getFilename() {
+    public function getFilename(): string {
         return $this->filename;
     }
 
-    function getTitle() {
+    public function getTitle(): string {
         return $this->title;
     }
 
-    function getCopies() {
+    public function getCopies(): int {
         return $this->copies;
     }
 
-    function getOptions() {
+    public function getOptions(): string {
         return $this->options;
     }
 
-    function getHostname() {
+    public function getHostname(): string {
         return $this->hostname;
     }
 
-    function getMd5sum() {
+    public function getMd5sum(): string {
         return $this->md5sum;
     }
 
-    function getPages() {
+    public function getPages(): int {
         return $this->pages;
     }
 
-    function getBillingcode() {
+    public function getBillingcode(): string {
         return $this->billingcode;
     }
 
-    function getPrecomputedjobsize() {
+    public function getPrecomputedjobsize(): ?int {
         return $this->precomputedjobsize;
     }
 
-    function getPrecomputedjobprice() {
+    public function getPrecomputedjobprice(): ?float {
         return $this->precomputedjobprice;
     }
 
-    function getJobdate() {
+    public function getJobdate(): ?string {
         return $this->jobdate;
     }
 
-    function setId($id) {
+    public function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setJobid($jobid) {
+    public function setJobid(int $jobid): void {
         $this->jobid = $jobid;
     }
 
-    function setUserid($userid) {
+    public function setUserid(int $userid): void {
         $this->userid = $userid;
     }
 
-    function setPrinterid($printerid) {
+    public function setPrinterid(int $printerid): void {
         $this->printerid = $printerid;
     }
 
-    function setPagecounter($pagecounter) {
+    public function setPagecounter(int $pagecounter): void {
         $this->pagecounter = $pagecounter;
     }
 
-    function setJobsizebytes($jobsizebytes) {
+    public function setJobsizebytes(int $jobsizebytes): void {
         $this->jobsizebytes = $jobsizebytes;
     }
 
-    function setJobsize($jobsize) {
+    public function setJobsize(float $jobsize): void {
         $this->jobsize = $jobsize;
     }
 
-    function setJobprice($jobprice) {
+    public function setJobprice(float $jobprice): void {
         $this->jobprice = $jobprice;
     }
 
-    function setAction($action) {
+    public function setAction(string $action): void {
         $this->action = $action;
     }
 
-    function setFilename($filename) {
+    public function setFilename(string $filename): void {
         $this->filename = $filename;
     }
 
-    function setTitle($title) {
+    public function setTitle(string $title): void {
         $this->title = $title;
     }
 
-    function setCopies($copies) {
+    public function setCopies(int $copies): void {
         $this->copies = $copies;
     }
 
-    function setOptions($options) {
+    public function setOptions(string $options): void {
         $this->options = $options;
     }
 
-    function setHostname($hostname) {
+    public function setHostname(string $hostname): void {
         $this->hostname = $hostname;
     }
 
-    function setMd5sum($md5sum) {
+    public function setMd5sum(string $md5sum): void {
         $this->md5sum = $md5sum;
     }
 
-    function setPages($pages) {
+    public function setPages(int $pages): void {
         $this->pages = $pages;
     }
 
-    function setBillingcode($billingcode) {
+    public function setBillingcode(string $billingcode): void {
         $this->billingcode = $billingcode;
     }
 
-    function setPrecomputedjobsize($precomputedjobsize) {
+    public function setPrecomputedjobsize(?int $precomputedjobsize): void {
         $this->precomputedjobsize = $precomputedjobsize;
     }
 
-    function setPrecomputedjobprice($precomputedjobprice) {
+    public function setPrecomputedjobprice(?float $precomputedjobprice): void {
         $this->precomputedjobprice = $precomputedjobprice;
     }
 
-    function setJobdate($jobdate) {
+    public function setJobdate(?string $jobdate): void {
         $this->jobdate = $jobdate;
     }
-
 }

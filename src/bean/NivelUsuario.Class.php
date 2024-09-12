@@ -5,20 +5,17 @@
  * @author AJ
  */
 class NivelUsuario {
-    
-    private $id;
-    private $nome;
 
-    function __construct($id, $nome) {
-        $this->id = $id;
-        $this->nome = $nome;
-    }
+    public function __construct(
+        private int $id,
+        private string $nome,
+    ) {}
 
-    function getId() {
+    public function getId(): int {
         return $this->id;
     }
 
-    function getNome() {
+    public function getNome(): string {
         return $this->nome;
     }
 

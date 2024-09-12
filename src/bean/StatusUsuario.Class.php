@@ -6,19 +6,16 @@
  */
 class StatusUsuario {
 
-    private $IDSTATUS;
-    private $TIPOSTATUS;
-    
-    function __construct($IDSTATUS, $TIPOSTATUS) {
-        $this->IDSTATUS = $IDSTATUS;
-        $this->TIPOSTATUS = $TIPOSTATUS;
-    }
+    public function __construct(
+        private int $IDSTATUS,
+        private string $TIPOSTATUS,
+    ) {}
 
-    function getIDSTATUS() {
+    public function getIDSTATUS(): int {
         return $this->IDSTATUS;
     }
 
-    function getTIPOSTATUS() {
+    public function getTIPOSTATUS(): string {
         return $this->TIPOSTATUS;
     }
 

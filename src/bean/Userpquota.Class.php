@@ -6,106 +6,100 @@
  */
 class Userpquota {
     
-    private $id;
-    private $userid;
-    private $printerid;
-    private $lifepagecounter;
-    private $pagecounter;
-    private $softlimit;
-    private $hardlimit;
-    private $datelimit;
-    private $maxjobsize;
-    private $warncount;
-    
-    function __construct(int $id) {
+    public function __construct(
+        private int $id,
+        private int $userid = 0,
+        private int $printerid = 0,
+        private int $lifepagecounter = 0,
+        private int $pagecounter = 0,
+        private int $softlimit = 0,
+        private int $hardlimit = 0,
+        private int $maxjobsize = 0,
+        private int $warncount = 0,
+        private string $datelimit = ''
+    ) {
         $data = new Data();
-        $this->id = $id;
-        $this->lifepagecounter = (int) 0;
-        $this->pagecounter = (int) 0;
-        $this->softlimit = (int) 0;
-        $this->hardlimit = (int) 0;
-        $this->maxjobsize = (int) 0;
-        $this->warncount = (int) 0;
-        $this->datelimit = $data->dataEhora_atual_en();
+        $this->datelimit = empty($this->datelimit) ? $data->dataEhora_atual_en() : $this->datelimit;
     }
+
     
-    function getId() {
+    public function getId(): int {
         return $this->id;
     }
 
-    function getUserid() {
+    public function getUserid(): int {
         return $this->userid;
     }
 
-    function getPrinterid() {
+    public function getPrinterid(): int {
         return $this->printerid;
     }
 
-    function getLifepagecounter() {
+    public function getLifepagecounter(): int {
         return $this->lifepagecounter;
     }
 
-    function getPagecounter() {
+    public function getPagecounter(): int {
         return $this->pagecounter;
     }
 
-    function getSoftlimit() {
+    public function getSoftlimit(): int {
         return $this->softlimit;
     }
 
-    function getHardlimit() {
+    public function getHardlimit(): int {
         return $this->hardlimit;
     }
 
-    function getDatelimit() {
+    public function getDatelimit(): string {
         return $this->datelimit;
     }
 
-    function getMaxjobsize() {
+    public function getMaxjobsize(): int {
         return $this->maxjobsize;
     }
 
-    function getWarncount() {
+    public function getWarncount(): int {
         return $this->warncount;
     }
 
-    function setId($id) {
+    public function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setUserid($userid) {
+    public function setUserid(int $userid): void {
         $this->userid = $userid;
     }
 
-    function setPrinterid($printerid) {
+    public function setPrinterid(int $printerid): void {
         $this->printerid = $printerid;
     }
 
-    function setLifepagecounter($lifepagecounter) {
+    public function setLifepagecounter(int $lifepagecounter): void {
         $this->lifepagecounter = $lifepagecounter;
     }
 
-    function setPagecounter($pagecounter) {
+    public function setPagecounter(int $pagecounter): void {
         $this->pagecounter = $pagecounter;
     }
 
-    function setSoftlimit($softlimit) {
+    public function setSoftlimit(int $softlimit): void {
         $this->softlimit = $softlimit;
     }
 
-    function setHardlimit($hardlimit) {
+    public function setHardlimit(int $hardlimit): void {
         $this->hardlimit = $hardlimit;
     }
 
-    function setDatelimit($datelimit) {
+    public function setDatelimit(string $datelimit): void {
         $this->datelimit = $datelimit;
     }
 
-    function setMaxjobsize($maxjobsize) {
+    public function setMaxjobsize(int $maxjobsize): void {
         $this->maxjobsize = $maxjobsize;
     }
 
-    function setWarncount($warncount) {
+    public function setWarncount(int $warncount): void {
         $this->warncount = $warncount;
     }
 

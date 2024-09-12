@@ -7,28 +7,25 @@
  */
 class GroupsMembers {
 
-    private $groupid;
-    private $userid;
+    public function __construct(
+        public int $groupid,
+        public int $userid,
+    ) {}
 
-    function __construct(int $groupid, int $userid) {
-        $this->groupid = (int) $groupid;
-        $this->userid = (int) $userid;
+    public function setGroupid(int $groupid): void {
+        $this->groupid = $groupid;
     }
 
-    function setGroupid(int $groupid) {
-        $this->groupid = (int) $groupid;
+    public function setUserid(int $userid): void {
+        $this->userid = $userid;
     }
 
-    function setUserid(int $userid) {
-        $this->userid = (int) $userid;
+    public function getGroupid(): int {
+        return $this->groupid;
     }
 
-    function getGroupid() : int {
-        return (int) $this->groupid;
-    }
-
-    function getUserid() : int {
-        return (int) $this->userid;
+    public function getUserid(): int {
+        return $this->userid;
     }
 
 }

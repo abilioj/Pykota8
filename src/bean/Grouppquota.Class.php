@@ -5,62 +5,61 @@
  * @author abilio.jose
  */
 class Grouppquota {
-     
-    private $id;
-    private $groupid;
-    private $printerid;
-    private $softlimit;
-    private $hardlimit;
-    private $datelimit;
-    
-    function __construct() {        
-    }
 
-    function getId() {
+    public function __construct(
+        private int $id,
+        private int $groupid,
+        private int $printerid,
+        private int $softlimit,
+        private int $hardlimit,
+        private ?string $datelimit = null,
+    ) {}
+
+    public function getId(): int {
         return $this->id;
     }
 
-    function getGroupid() {
+    public function getGroupid(): int {
         return $this->groupid;
     }
 
-    function getPrinterid() {
+    public function getPrinterid(): int {
         return $this->printerid;
     }
 
-    function getSoftlimit() {
+    public function getSoftlimit(): int {
         return $this->softlimit;
     }
 
-    function getHardlimit() {
+    public function getHardlimit(): int {
         return $this->hardlimit;
     }
 
-    function getDatelimit() {
+    public function getDatelimit(): ?string {
         return $this->datelimit;
     }
 
-    function setId($id) {
+    public function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setGroupid($groupid) {
+    public function setGroupid(int $groupid): void {
         $this->groupid = $groupid;
     }
 
-    function setPrinterid($printerid) {
+    public function setPrinterid(int $printerid): void {
         $this->printerid = $printerid;
     }
 
-    function setSoftlimit($softlimit) {
+    public function setSoftlimit(int $softlimit): void {
         $this->softlimit = $softlimit;
     }
 
-    function setHardlimit($hardlimit) {
+    public function setHardlimit(int $hardlimit): void {
         $this->hardlimit = $hardlimit;
     }
 
-    function setDatelimit($datelimit) {
+    public function setDatelimit(?string $datelimit): void {
         $this->datelimit = $datelimit;
     }
 

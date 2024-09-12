@@ -7,16 +7,16 @@
  */
 class CotasUser {
     
-    private $pkuser;
-    private $LimiteSetor;
-    private $pkgroup;
-    
-    function __construct(int $pkuser,int $LimiteSetor,int $pkgroup) {
-        $this->pkuser = (int) $pkuser;
-        $this->LimiteSetor = (int) $LimiteSetor;
-        $this->pkgroup = (int) $pkgroup;
+    public function __construct(
+        private int $pkuser,
+        private int $LimiteSetor,
+        private int $pkgroup,
+    ) {
+        $this->pkuser = $pkuser;
+        $this->LimiteSetor = $LimiteSetor;
+        $this->pkgroup = $pkgroup;
     }
-
+    
     function getPkuser() : int {
         return (int) $this->pkuser;
     }
@@ -30,3 +30,4 @@ class CotasUser {
     }
 
 }
+

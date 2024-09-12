@@ -7,46 +7,42 @@
  */
 class IPPrinter {
     
-    private $id_printer;
-    private $ip;
-    private $nome;//nao a no banco
-    private $tipo;
-    
-    public function __construct($id_printer, $ip) {
-        $this->id_printer = $id_printer;
-        $this->ip = $ip;
-        $this->tipo = 1;
-    }
+    public function __construct(
+        public int $id_printer,
+        public string $ip,
+        public string $nome = '',
+        public int $tipo = 1,
+    ) {}
 
-    public function getId_printer() {
+    public function getId_printer(): int {
         return $this->id_printer;
     }
 
-    public function getIp() {
+    public function getIp(): string {
         return $this->ip;
     }
 
-    public function getNome() {
+    public function getNome(): string {
         return $this->nome;
     }
 
-    public function getTipo() {
+    public function getTipo(): int {
         return $this->tipo;
     }
 
-    public function setId_printer($id_printer): void {
+    public function setId_printer(int $id_printer): void {
         $this->id_printer = $id_printer;
     }
 
-    public function setIp($ip): void {
+    public function setIp(string $ip): void {
         $this->ip = $ip;
     }
 
-    public function setNome($nome): void {
+    public function setNome(string $nome): void {
         $this->nome = $nome;
     }
 
-    public function setTipo($tipo): void {
+    public function setTipo(int $tipo): void {
         $this->tipo = $tipo;
     }
 
