@@ -74,9 +74,9 @@ class DaoGeneric {
         endswitch;
         $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
-            $this->Array[] = array("id" => $r["id"], "idu" => $r["idu"], "idg" => $r["idg"], "idi" => $r["idi"], "usuario" => $r["usuario"]
-                , "grupo" => $r["grupo"], "limite" => $r["limite"], "consumido" => $r["consumido"], "disponivel" => $r["disponivel"], "impressora" => $r["impressora"]
-                    , "balance" => $r["balance"], "limitmonth" => $r["limitmonth"]);
+            $this->Array[] = array("id" => $r["id"]?? 0, "idu" => $r["idu"]?? 0, "idg" => $r["idg"]?? 0, "idi" => $r["idi"]?? 0, "usuario" => $r["usuario"]?? ''
+                , "grupo" => $r["grupo"]?? '', "limite" => $r["limite"]?? 0, "consumido" => $r["consumido"]?? 0, "disponivel" => $r["disponivel"]?? 0, "impressora" => $r["impressora"] ?? ''
+                    , "balance" => $r["balance"]?? 0, "limitmonth" => $r["limitmonth"]?? 0);
         endforeach;
         return $this->Array;
     }

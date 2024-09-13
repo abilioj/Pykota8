@@ -20,7 +20,7 @@ $arrayDados = null;
 $dados = null; //$dao->Listar();
 
 $conn->sql = $sqlR->sqlSelectPrinters();
-$arrayDados = $conn->montaArrayPesquisa();
+$arrayDados = $conn->fetchArrayAssoc();
 
 
 /* sessao */

@@ -130,7 +130,7 @@ class TrataMsgSMNP {
     public static function trataStatusSamsung($stn): string {
         $stn = preg_replace('/\n/', "", $stn);
         $stn = preg_replace('/\"/', "", $stn);
-//        $stn = ToString::TrocarCaracte('STRING:', '', $stn);
+        $stn = ToString::TrocarCaracte('STRING:', '', trim($stn));
         $stnRet = "";
         $class = "text";
         switch ($stn):

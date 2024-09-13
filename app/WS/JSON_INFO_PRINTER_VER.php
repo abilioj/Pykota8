@@ -7,7 +7,9 @@ $conn = new Conexao();
 $dao = new DaoIPPrinter();
 
 //variavel 
-$faix_ip = "10.1.0.";
+$faix_ip1 = "10.1.1.";
+$faix_ip0 = "10.1.0.";
+$faix_ip11 = "10.1.11.";
 $intTempo = 4000;
 $intTemtativa = 1;
 $name = "";
@@ -29,12 +31,11 @@ $ids_mibPrintSamsung = array(
     , 2 => '.1.3.6.1.4.1.236.11.5.1.1.3.22.0'
 );
 
-
 if ($ip != null):
     $name = $dao->returnNome($ip);
-    if ($ip != $faix_ip . '1' && $ip != $faix_ip . '12' && $ip != $faix_ip . '15' && $ip != $faix_ip . '16' && $ip != $faix_ip . '9' && $ip != $faix_ip . '2'):
+    if ($ip == $faix_ip0 . '5' || $ip == $faix_ip1 . '234' || $ip == $faix_ip11 . '21'):
         try {
-            $session = new SNMP(SNMP::VERSION_1, $ip, 'public',$intTempo,$intTemtativa);
+            $session = new SNMP(SNMP::VERSION_1, $ip, 'public', $intTempo, $intTemtativa);
             $session->exceptions_enabled = SNMP::ERRNO_ANY;
             $arrayDados = array(
                 'name' => $name
@@ -78,18 +79,17 @@ if ($ip != null):
                 , 'nomeCompleto' => ''
 //        , 'C4' => ''))
 //        , 'C4' => ''))
-                );
+            );
         } finally {
             $session->close();
             unset($session);
         }
-    endif;
-    if($ip == $faix_ip . '2' || $ip == $faix_ip . '9' || $ip == $faix_ip . '16'):
+    elseif ($ip == $faix_ip11 . '22'):
         try {
             $session = new SNMP(SNMP::VERSION_1, $ip, 'public', $intTempo, $intTemtativa);
             $session->exceptions_enabled = SNMP::ERRNO_ANY;
             $arrayDados = array(
-                'name' => $name
+                'name' => 'Farmacia'
                 , 'modelo' => TrataMsgSMNP::trataRetorno($session->get($ids_mibPrintSamsung[0]))
                 , 'status' => TrataMsgSMNP::trataStatusSamsung(TrataMsgSMNP::trataRetorno($session->get($ids_mibPrintSamsung[1])))
                 , 'toner' => TrataMsgSMNP::trataRetorno($session->get($ids_mibPrintSamsung[2]))
@@ -99,7 +99,7 @@ if ($ip != null):
                 , 'colour_printer_coun' => ''
                 , 'printer_coun' => ''
                 , 'error' => ''
-                , 'overall' => ''
+                , 'overall' =>  TrataMsgSMNP::trataRetorno(@$session->get('.1.3.6.1.2.1.43.10.2.1.4.1.1'))
                 , 'cBlack' => ''
                 , 'cCYAN' => ''
                 , 'cMAGENTA' => ''
@@ -108,7 +108,7 @@ if ($ip != null):
                 , 'nomeCompleto' => ''
 //        , 'C4' => ''))
 //        , 'C4' => ''))
-                );
+            );
         } catch (Exception $ex) {
             $arrayDados = array(
                 'name' => $name
@@ -130,12 +130,13 @@ if ($ip != null):
                 , 'nomeCompleto' => ''
 //        , 'C4' => ''))
 //        , 'C4' => ''))
-                );
+            );
         } finally {
             $session->close();
             unset($session);
         }
-
+    else:
+        
     endif;
 endif;
 

@@ -29,15 +29,14 @@ $ids_mibPrintRicoh = array(
     , 2 => '.1.3.6.1.4.1.367.3.2.1.2.24.1.1.5.1'
 );
 $ids_mibPrintSamsung = array(
-    0 => 'iso.3.6.1.2.1.25.3.2.1.3.1'
+    0 => '.1.3.6.1.2.1.43.5.1.1.16.1'
     , 1 => 'iso.3.6.1.2.1.43.16.5.1.2.1.2'
     , 2 => '.1.3.6.1.4.1.236.11.5.1.1.3.22.0'
 );
 $ids_mibPrintHP = array(
-    0 => '.1.3.6.1.4.1.11.2.4.3.5.44.0'
+    0 => '.1.3.6.1.2.1.43.5.1.1.17.1'
     , 1 => '.1.3.6.1.4.1.11.2.4.3.1.12.1.2.72'
     , 2 => '.1.3.6.1.2.1.43.11.1.1.9.1.1'
-    , 4 => '.1.3.6.1.2.1.43.5.1.1.17.1'
 );
 
 for ($i = 1; $i <= 21; $i++) {
@@ -83,17 +82,16 @@ for ($i = 1; $i <= 21; $i++) {
     endif;
 }
 
-for ($i = 1; $i <= 20; $i++) {
+for ($i = 1; $i <= 22; $i++) {
     $ip = (string) $faix_ip11 . $i;
     $name = $dao->returnNome($ip);
-    // if ($i == 9):
+   if ($i < 21):
     try {
         $session = new SNMP(SNMP::VERSION_2c, $ip, 'public', $intTempo, $intTemtativa);
         $session->exceptions_enabled = SNMP::ERRNO_ANY;
         $arrayDados['data'][] = array(
-            $name
-            // , TrataMsgSMNP::trataRetorno($session->get($ids_mibPrintHP[0])) 
-            , ToString::TrocarCaracte('STRING:', '', $session->get($ids_mibPrintHP[4]))
+            $name 
+            , ToString::TrocarCaracte('STRING:', '', $session->get($ids_mibPrintHP[0]))
             , TrataMsgSMNP::trataStatus($session->get($ids_mibPrintHP[1]))
             , TrataMsgSMNP::BARprogress(TrataMsgSMNP::trataRetorno($session->get($ids_mibPrintHP[2])))
             , $ip);
@@ -103,7 +101,24 @@ for ($i = 1; $i <= 20; $i++) {
         $session->close();
         unset($session);
     }
-    // endif;
+   endif;
+   if ($i == 22):
+    try {
+        $session = new SNMP(SNMP::VERSION_1, $ip, 'public', $intTempo, $intTemtativa);
+        $session->exceptions_enabled = SNMP::ERRNO_ANY;
+        $arrayDados['data'][] = array(
+            "FARMACIA Sansung" 
+            , ToString::TrocarCaracte('STRING:', '', $session->get($ids_mibPrintSamsung[0]))
+            , TrataMsgSMNP::trataStatusSamsung($session->get($ids_mibPrintSamsung[1]))
+            , TrataMsgSMNP::BARprogress(TrataMsgSMNP::trataRetorno($session->get($ids_mibPrintSamsung[2])))
+            , $ip);
+    } catch (Exception $ex) {
+        $arrayDados['data'][] = array($name, '', TrataMsgSMNP::trataRetorno($session->getError()), TrataMsgSMNP::BARprogress((0)), $ip);
+    } finally {
+        $session->close();
+        unset($session);
+    }
+   endif;
 }
 
 try {

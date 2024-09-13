@@ -36,7 +36,7 @@ $tpl->addFile("HRADER_MENU", "./view/Include/header_menu.html");
 $tpl->addFile("FOOTER", "./view/Include/footer.html");
 $tpl->addFile("SCRIPT", "./view/Include/script.html");
 $tpl->addFile("SCRIPT_UTIL", "./view/Include/script_Util.html");
-$tpl->addFile("SCRIPT_CHAR", "./view/{$lpartHtml_CHART}.html");
+// $tpl->addFile("SCRIPT_CHAR", "./view/{$lpartHtml_CHART}.html");
 //partsFormDashboard
 $tpl->addFile("PARTSFORMDASHBOARD", "./view/partsHTML/parts/partsFormDashboardPrinter.html");;
 $tpl->addFile("ModalVERPrinter", "./view/partsHTML/modal/ModalVERPrinter.html");

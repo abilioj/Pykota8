@@ -84,7 +84,7 @@ class DaoUsuario {
             $usu->setLogin($d->dado[4]);
             $usu->setSenha($d->dado[5]);
             $usu->setEmail($d->dado[6]);
-            $usu->setFoto($d->dado[7]);
+            $usu->setFoto((is_null($d->dado[7])?'':$d->dado[7]));
             $usu->setTelefone($d->dado[8]);
             $usu->setDatacadastro($d->dado[9]);
             $usu->setDataalteracao($d->dado[10]);
