@@ -7,28 +7,10 @@
  */
 class PreparaArrays {
 
-   function __construct() {
-
+   public function ArryasTOMaiusculas(array $array): array {
+      return array_map('mb_strtoupper', $array);
    }
 
-   public function ArryasTOMaiusculas($array) {
-      if (function_exists("TOMaiusculas")) :
-
-         function TOMaiusculasI($value) {
-            return ToString::StringPraMaiusculas($value);
-         }
-
-         $return = array_map("TOMaiusculasI", $array);
-      else:
-
-         function TOMaiusculas($value) {
-            return ToString::StringPraMaiusculas($value);
-         }
-
-         $return = array_map("TOMaiusculas", $array);
-      endif;
-      return $return;
-   }
 
    /**
     * (PHP 5.6, PHP 7)<br/>
@@ -41,7 +23,7 @@ class PreparaArrays {
     * Para tal, iremos utilizar a função explode, passando o caractere que desejamos
     * utilizar para separar os dados na string.</p>
     */
-   function StringToArray(string $paramString, string $paramCarac) {
+   function StringToArray(string $paramString, string $paramCarac): array|bool {
       $array = explode($paramCarac, $paramString);
       return $array;
    }
@@ -58,7 +40,7 @@ class PreparaArrays {
     * Para tal, iremos utilizar a função implode(), passando o caractere que desejamos
     * utilizar para separar os dados na string.</p>
     */
-   function ArrayToString(array $paramArray, string $paramCarac) {
+   function ArrayToString(array $paramArray, string $paramCarac): string {
       $array = implode($paramCarac, $paramArray);
       return $array;
    }

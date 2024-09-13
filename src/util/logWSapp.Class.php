@@ -14,6 +14,7 @@ class logWSapp {
     private $objLog;
     private $textTitulo;
     private $innfConn;
+    private $urlDir;
 
     function __construct($ptextTitulo, $purlDir) {
         $conn = new ConfigBDClass();
@@ -43,4 +44,7 @@ class logWSapp {
         $this->objLog->error($pMsg);
     }
 
+    public function setUrlDir(string $urlDir): void {
+        $this->urlDir = $urlDir;
+    }
 }

@@ -40,7 +40,7 @@ class Dir_File {
 
     public function DelDiretorio($dir) {
         if (!file_exists($dir)):
-            if ($ListDir != null):
+            if ($dir != null):
                 return rmdir($dir);
             else:
                 return FALSE;
@@ -48,24 +48,6 @@ class Dir_File {
         else:
             return FALSE;
         endif;
-    }
-
-    public function DelDiretorioArvore($dir,$DeleteMe) {      
-        if ($DeleteMe==NULL)$DeleteMe=FALSE;
-        if (!$dh = @opendir($dir))return;
-        while (false !== ($obj = readdir($dh))) {
-            if ($obj == '.' || $obj == '..')
-                continue;
-            if (!@unlink($dir . '/' . $obj))
-                SureRemoveDir($dir . '/' . $obj, true);
-        }
-        
-        closedir($dh);
-        if ($DeleteMe) {
-            return rmdir($dir);
-        }  else {
-            return TRUE;
-        }
     }
 
     public function RenomeaDiretorio($dir, $newdir) {

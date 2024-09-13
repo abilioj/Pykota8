@@ -8,11 +8,11 @@ class Menssagem {
         
     }
 
-    public function GetMenssagem() {
+    public function GetMenssagem(): string {
         return $this->menssagemFinal;
     }
 
-    public function MenssagemToMsgEmail(Contato $obj) {
+    public function MenssagemToMsgEmail($nome) {
         $this->menssagemFinal = "<body><p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
 text-align:center;line-height:15.95pt;background:white'>
 <span style='font-size:10.0pt;font-family:'Arial','sans-serif';mso-fareast-font-family:'Times New Roman';
@@ -21,7 +21,7 @@ color:#444444;mso-fareast-language:PT-BR'> Imoveis</span></p><hr><br/>
 15.95pt;background:white'><span style='font-size:10.0pt;font-family:'Arial','sans-serif';
 mso-fareast-font-family:'Times New Roman';color:#444444;background:white;
 mso-fareast-language:PT-BR'>Prezado(a) Sr.(<span class=GramE>a)<span
-style='color:#333333'>&nbsp; " . $obj->getNome() . "</span>,</span></p>
+style='color:#333333'>&nbsp; " . $nome . "</span>,</span></p>
 <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
 15.95pt;background:white'><span style='font-size:10.0pt;font-family:'Arial','sans-serif';
 mso-fareast-font-family:'Times New Roman';color:#444444;background:white;
