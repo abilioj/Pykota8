@@ -12,6 +12,7 @@ Class ConexaoPost {
     private $numrows;
     private $isOK;
     private $string;
+    private $error;
     public $sql;
 
     function __construct() {
@@ -24,7 +25,7 @@ Class ConexaoPost {
         $this->numrows = 0;
     }
 
-    private function conecta() {
+    private function conecta() : mixed {
         $this->conexao = pg_connect("host=" . $this->servidor . " port=" . $this->porta . " dbname=" . $this->bancoDeDados . " user=" . $this->usuario . " password=" . $this->senha . "");
         if ($this->conexao) {
             return $this->conexao;
@@ -50,7 +51,7 @@ Class ConexaoPost {
         }
     }
 
-    public function updateQuery() {
+    public function updateQuery() : mixed {
         try {
             $this->conecta();
         } catch (Exception $erro) {
@@ -70,13 +71,13 @@ Class ConexaoPost {
     }
 
     // Salva no array $line resultados retornados
-    function MostrarResultados() {
+    function MostrarResultados() : array {
         $execucao = $this->executaQuery();
         $line = pg_fetch_array($execucao);
         return $line;
     }
 
-    public function montaArrayPesquisa() {
+    public function montaArrayPesquisa() : array|null  {
         $arrayDados = null;
         $execucao = $this->executaQuery();
         $i = 0;
@@ -89,7 +90,7 @@ Class ConexaoPost {
         return $arrayDados;
     }
 
-    public function RsutArrayAssoc() {
+    public function RsutArrayAssoc() : array {
         $result = $this->executaQuery();
 //        if(is_array($result)):
         return pg_fetch_array($result, PGSQL_ASSOC);
@@ -99,13 +100,13 @@ Class ConexaoPost {
     }
 
     // Numero de linhas retornada na consulta
-    public function ContarLinhas() {
+    public function ContarLinhas() : int {
         $this->numrows = pg_num_rows($this->execucao);
         return $this->numrows;
     }
 
     // Fecha conexao
-    private function desconecta() {
+    private function desconecta() : void {
         pg_flush($this->conexao);
         pg_close($this->conexao);
     }
@@ -115,7 +116,7 @@ Class ConexaoPost {
         pg_free_result($this->execucao);
     }
 
-    public function linhasPesquisadas($tipo) {
+    public function linhasPesquisadas(string $tipo) : bool {
         $this->isOK = $this->executaQuery();
         if ($this->isOK == true):
             $tipo = strtolower($tipo);
@@ -128,7 +129,7 @@ Class ConexaoPost {
         return (bool) $this->isOK;
     }
 
-    public function TestConect() {
+    public function TestConect() : bool {
         $this->conexao = pg_connect("host=" . $this->servidor . " port=" . $this->porta . " dbname=" . $this->bancoDeDados . " user=" . $this->usuario . " password=" . $this->senha . "");
         if ($this->conexao) {
             $this->string = "conectado";
@@ -139,12 +140,16 @@ Class ConexaoPost {
         }
     }
 
-    public function getNumrows() {
+    public function getNumrows() : int {
         return $this->numrows;
     }
 
-    public function getString() {
+    public function getString() : string {
         return $this->string;
+    }
+
+    public function getError() : mixed {
+        return $this->error;
     }
 
 }
