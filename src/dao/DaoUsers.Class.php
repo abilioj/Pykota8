@@ -12,7 +12,6 @@ class DaoUsers {
     private $colunas;
     private $colunasAS;
     private $colunasAS_Lista;
-    private $colunasAS_Lista_MD;
 
     function __construct() {
         $this->dao = new DaoFull();

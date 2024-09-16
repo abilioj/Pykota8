@@ -9,7 +9,6 @@ class DaoLogin {
     private $dao;
     private $colunas;
     private $colunasAS;
-    private $colunasAS_Lista;
     
     //login - "id","login","senha","email","cpf","nivel","status","pkgroup"
     function __construct() {
@@ -19,13 +18,13 @@ class DaoLogin {
         $this->colunasAS = array("l.id","l.login","l.senha","l.email","l.cpf","l.nivel","l.status","l.pkgroup");
     }
 
-    public function inserir(Login $obj) {
+    public function inserir(Login $obj): bool {
         $dado = array($obj->getLogin(),$obj->getSenha(),$obj->getEmail(),$obj->getCpf(),$obj->getNivel(),$obj->getStatus(),$obj->getPkgroup());
         $coluna = array("login","senha","email","cpf","nivel","status","pkgroup");
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar() {
+    public function Listar(): string|null {
         $camposTabelas = array("l.id","l.login","l.senha","l.email","l.cpf","l.nivel","l.pkgroup");
         $nomeTabelas = array("l" => "login");
         $condicoes = null;//array();
@@ -43,7 +42,7 @@ class DaoLogin {
         }
     }
 
-    public function selecionar(Login $obj) {
+    public function selecionar(Login $obj): Login {
         $camposTabelas = array("l.id","l.login","l.senha","l.email","l.cpf","l.nivel","l.pkgroup","l.status");
         $nomeTabelas = array("l" => "login");
         $condicoes = array("l.id = " . $obj->getId() . " ");
@@ -65,7 +64,7 @@ class DaoLogin {
         return $obj;
     }
 
-    public function login (Login $obj) {
+    public function login (Login $obj): Login {
         $camposTabelas = array("l.id","l.login","l.senha","l.email","l.cpf","l.nivel","l.pkgroup","l.status");
         //$nomeTabelas = array("l" => "login");
         //$condicoes = array("l.login = '" . $obj->getLogin() . "' ");
@@ -81,7 +80,7 @@ class DaoLogin {
             $objmonta = new MontaDados();
             $objmonta->colunas = $camposTabelas;
             $objmonta->dados = $arrayDados;
-            $d = $objmonta->pegaDados($d);
+            $d = $objmonta->pegaDados();
             $obj->setId($d->dado[0]);
             $obj->setLogin($d->dado[1]);
             $obj->setSenha($d->dado[2]);
@@ -96,7 +95,7 @@ class DaoLogin {
         return $obj;
     }
     
-    public function PegarUltimoId() {
+    public function PegarUltimoId(): mixed {
         $camposTabelas = array();
         $nomeTabelas = array();
         $condicoes = NULL;
@@ -111,7 +110,7 @@ class DaoLogin {
         return $Id;
     }
 
-    public function alterar(Login $obj) {
+    public function alterar(Login $obj): bool {
         $dado = array($obj->getLogin(),$obj->getSenha(),$obj->getEmail(),$obj->getCpf(),$obj->getNivel(),$obj->getStatus(),$obj->getPkgroup());
         $camposTabelas = array("login","senha","email","cpf","nivel","status","pkgroup");
         $where = "id = " . $obj->getId() . " ";
@@ -122,16 +121,16 @@ class DaoLogin {
         }
     }
 
-    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) {
+    public function fucaoAtualizarDefull($dado, $camposTabelas, $where): bool {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
+    public function fucaoVerificarDefull(string $where): bool {
         $this->dao->arrayTable = array("l" => "login");
         return $this->dao->Verificar($where, null);
     }
 
-    public function excluir(Login $obj) {
+    public function excluir(Login $obj): bool {
         $where = array("id = " . $obj->getId() . " ");
         if ($this->dao->excluir($where, null)) {
             return true;

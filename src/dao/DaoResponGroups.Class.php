@@ -10,7 +10,6 @@ class DaoResponGroups {
     private $dao;
     private $colunas;
     private $colunasAS;
-    private $colunasAS_Lista;
 
     // respongroups - 'id_user', 'id_user_res', 'id_group'
     function __construct() {

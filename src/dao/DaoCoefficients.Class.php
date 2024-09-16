@@ -22,7 +22,7 @@ class DaoCoefficients
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar(): ?MontaDados
+    public function Listar(): MontaDados|null
     {
         $camposTabelas = ["c.id", "c.printerid", "c.label", "c.coefficient"];
         $nomeTabelas = ["c" => "coefficients"];
@@ -33,7 +33,7 @@ class DaoCoefficients
             $obMontaDados = new MontaDados();
             $obMontaDados->colunas = $camposTabelas;
             $obMontaDados->dados = $arrayDados;
-            return $obMontaDados->deListar(2, "../../controle/cad_OBJ.php", 7);
+            return $obMontaDados->deListar(2, "../../controle/cad_OBJ.php", 7,"");
         } else {
             return null;
         }

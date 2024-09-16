@@ -7,9 +7,6 @@
 class DaoJobhistory {
 
     private $dao;
-    private $colunas;
-    private $colunasAS;
-    private $colunasAS_Lista;
 
     //jobhistory -  "id", "jobid", "userid", "printerid", "pagecounter", "jobsizebytes", "jobsize", "jobprice", "action", "filename", "title", "copies", "options", "hostname", "md5sum", "pages", "billingcode", "precomputedjobsize", "precomputedjobprice", "jobdate"
     function __construct() {

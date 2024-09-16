@@ -11,7 +11,6 @@ class DaoAcessoLoginWS {
     private $dao;
     private $colunas;
     private $colunasAS;
-    private $colunasAS_Lista;
 
     function __construct() {
         $this->dao = new DaoFull();

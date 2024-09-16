@@ -7,9 +7,6 @@
 class DaoGrouppquota {
     
     private $dao;
-    private $colunas;
-    private $colunasAS;
-    private $colunasAS_Lista;
 
     //grouppquota -  "id", "groupid", "printerid", "softlimit", "hardlimit", "datelimit"
     function __construct() {
@@ -35,7 +32,7 @@ class DaoGrouppquota {
 //            $obMontaDados->CampoData = array(0 => "");
             $obMontaDados->colunas = $camposTabelas;
             $obMontaDados->dados = $arrayDados;;
-            return $obMontaDados->deListar(2, "../../controle/cad_OBJ.php", 7);
+            return $obMontaDados->deListar(2, "../../controle/cad_OBJ.php", 7,'');
         } else {
             return null;
         }

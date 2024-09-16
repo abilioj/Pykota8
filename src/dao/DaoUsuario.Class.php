@@ -5,14 +5,11 @@ class DaoUsuario {
     private $dao;
     private $colunas;
     private $colunasAS;
-    private $colunasAS_Lista;
     private $isOk;
-    private $lastInsertId;
 
     function __construct() {
         $this->dao = new DaoFull();
         $this->isOk = false;
-        $this->lastInsertId = 0;
         $this->colunas = array("id_status", "id_nivel", "nome_usuario", "login_usuario", "senha_usuario","email_usuario", "telefone_usuario", "data_cadastro_usuario", "data_alteracao_usuario","data_ultimo_login_usuario", "foto_usuario");
         $this->colunasAS = array("u.id_usuario", "u.id_status", "u.id_nivel", "u.nome_usuario", "u.login_usuario", "u.senha_usuario", "u.email_usuario", "u.foto_usuario", "u.telefone_usuario", "u.data_cadastro_usuario", "u.data_alteracao_usuario", "u.data_ultimo_login_usuario");
     }

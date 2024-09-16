@@ -7,9 +7,6 @@
 class DaoPayments {
 
     private $dao;
-    private $colunas;
-    private $colunasAS;
-    private $colunasAS_Lista;
     
     //payments - "id", "userid", "amount", "description", "date"
     function __construct() {

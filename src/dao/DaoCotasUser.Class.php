@@ -10,7 +10,6 @@ class DaoCotasUser {
     private $dao;
     private $colunas;
     private $colunasAS;
-    private $colunasAS_Lista;
 
     //Cotas_User - "pkuser", "\"LimiteSetor\"", "pkgroup" 
     function __construct() {

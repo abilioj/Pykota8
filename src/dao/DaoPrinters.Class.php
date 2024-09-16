@@ -44,7 +44,7 @@ class DaoPrinters {
             $obMontaDados->dados = $arrayDados;
             return $obMontaDados->deListar(2, "../../controle/cad_Printers.php", 2, "");
         } else {
-            return null;
+            return '';
         }
     }
 

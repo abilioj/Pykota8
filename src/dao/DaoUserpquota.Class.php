@@ -12,8 +12,6 @@ class DaoUserpquota
     private bool $isOK;
     private DaoFull $dao;
     private array $colunas;
-    private array $colunasAS;
-    private array $colunasAS_Lista;
     
     //userpquota - "id", "userid", "printerid", "lifepagecounter", "pagecounter", "softlimit", "hardlimit", "datelimit", "maxjobsize", "warncount"
     public function __construct()
@@ -49,7 +47,7 @@ class DaoUserpquota
             $obMontaDados->dados = $arrayDados;
             return $obMontaDados->deListar(1, "../../controle/cad_OBJ.php", 7, "");
         } else {
-            return null;
+            return '';
         }
     }
 

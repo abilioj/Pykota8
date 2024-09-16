@@ -8,9 +8,6 @@
 class DaoBillingcodes {
 
     private DaoFull $dao;
-    private array $colunas;
-    private array $colunasAS;
-    private array $colunasAS_Lista;
 
     //billingcodes - 'id', 'billingcode', 'description', 'balance', 'pagecounter'
 

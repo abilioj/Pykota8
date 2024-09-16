@@ -7,15 +7,15 @@
  */
 class DaoGeneric {
 
-    private $Array;
-    private $nLinha;
-    private $sql;
-    private $sqlR;
-    private $sqlRR;
-    private $conn;
+    private array $Array;
+    private int $nLinha;
+    private Sql $sql;
+    private SqlRules $sqlR;
+    private SqlRulesRelatorios $sqlRR;
+    private Conexao $conn;
 
     function __construct() {
-        $this->Array = NULL;
+        $this->Array = [];
         $this->nLinha = 0;
         $this->sql = new Sql(null);
         $this->sqlR = new SqlRules();
@@ -25,10 +25,10 @@ class DaoGeneric {
 
     //listar todo usuario com todas inmformação de cota de um deteminado usuario
     public function listContasUserFindIDUsers(CotasUser $obj) {
-        $this->Array = NULL;
+        $this->Array = [];
         $conn = new Conexao();
         $sqlR = new SqlRules();
-        $conn->sql = $sqlR->sqlVerGrupoFindIDu((int) $obj->getPkuser());
+        $conn->sql = $sqlR->sqlVerGrupoFindIDgroup($obj->getPkuser());
         $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array("idg" => $r["idg"], "usuario" => $r["usuario"], "grupo" => $r["grupo"], "limite" => $r["limite"]
@@ -62,14 +62,14 @@ class DaoGeneric {
         $sqlR = new SqlRules();
         switch ($op):
         case 0:
-            $conn->sql = $sqlR->sqlVerGrupoFindIDgroup((int) $obj->getPkgroup());
+            $conn->sql = $sqlR->sqlVerGrupoFindIDgroup($obj->getPkgroup());
             break;
         case 1:
-            $conn->sql = $sqlR->sqlVerGrupoFindIDgroupAll((int) $obj->getPkgroup());
+            $conn->sql = $sqlR->sqlVerGrupoFindIDgroupAll($obj->getPkgroup());
             break;
         case 3:
-//            $conn->sql = $sqlR->sqlVerGrupoFindIDgroupUsers((int) $obj->getPkgroup());
-            $conn->sql = $sqlR->sqlVerGrupoFindIDgroupUsersBalance((int) $obj->getPkgroup());
+//            $conn->sql = $sqlR->sqlVerGrupoFindIDgroupUsers($obj->getPkgroup());
+            $conn->sql = $sqlR->sqlVerGrupoFindIDgroupUsersBalance($obj->getPkgroup());
             break;
         endswitch;
         $ArrayPesquisa = $conn->fetchArrayAssoc();
@@ -101,7 +101,7 @@ class DaoGeneric {
         $this->Array = NULL;
         $conn = new Conexao();
         $sqlR = new SqlRules();
-        $conn->sql = $sqlR->sqlSelctUserCotas((int) $obj->getUserid(), (int) $obj->getPrinterid());
+        $conn->sql = $sqlR->sqlSelctUserCotas($obj->getUserid(), $obj->getPrinterid());
         $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array("id" => $r["id"], "idu" => $r["idu"], "idg" => $r["idg"], "idi" => $r["idi"], "usuario" => $r["usuario"]
@@ -116,7 +116,7 @@ class DaoGeneric {
         $this->Array = NULL;
         $conn = new Conexao();
         $sqlR = new SqlRules();
-        $conn->sql = $sqlR->sqlVerGrupoFindIDgroup((int) $obj->getPkgroup(), (int) 0);
+        $conn->sql = $sqlR->sqlVerGrupoFindIDgroup( $obj->getPkgroup());
         $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
             $this->Array[] = array("idu" => $r["idu"], "idg" => $r["idg"], "usuario" => $r["usuario"], "grupo" => $r["grupo"], "limite" => $r["limite"]

@@ -96,7 +96,7 @@ class DaoNivelUsuario {
     }
 
     public function excluir(NivelUsuario $obj): bool {
-        $where = array("id_nivel = " . $obj->getIDNIVEL() . " ");
+        $where = array("id_nivel = " . $obj->getId() . " ");
         if ($this->dao->excluir($where, null)) {
             return true;
         } else {

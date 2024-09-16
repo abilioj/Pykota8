@@ -48,7 +48,7 @@ class DaoIPPrinter {
 //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, null, null, null, null, null);
         if ($d != null) {
-            $obj->setId($d->dado[0]);
+            $obj->setId_printer($d->dado[0]);
         } else {
 
         }
