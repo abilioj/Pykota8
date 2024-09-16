@@ -26,7 +26,7 @@ $page = $PHTML->OPNamePage($op, $NamePageview, "f");
 $disabled = $PHTML->getImputDisabled();
 
 if ($id > 0):
-    $objnew = new NivelUsuario($id,null);
+    $objnew = new NivelUsuario($id,'');
     $obj = $Dao->selecionar($objnew);
 else:
     $obj = new NivelUsuario(0, '');
