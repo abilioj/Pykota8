@@ -17,13 +17,13 @@ class DaoJobhistory {
         $this->dao->table = "jobhistory";
     }
 
-    public function inserir(Jobhistory $obj) {
+    public function inserir(Jobhistory $obj) : bool {
         $dado = array();
         $coluna = null; //array();
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar() {
+    public function Listar() : string|null {
         $camposTabelas = array("j.id", "j.jobid", "j.userid", "j.printerid", "j.pagecounter", "j.jobsizebytes", "j.jobsize", 
             "j.jobprice", "j.action", "j.filename", "j.title", "j.copies", "j.options", "j.hostname", "j.md5sum", "j.pages", 
             "j.billingcode", "j.precomputedjobsize", "j.precomputedjobprice", "j.jobdate");
@@ -43,7 +43,7 @@ class DaoJobhistory {
         }
     }
 
-    public function selecionar(Jobhistory $obj) {
+    public function selecionar(Jobhistory $obj) : Jobhistory {
         $camposTabelas = array();
         $nomeTabelas = array("j" => "jobhistory");
         $condicoes = null;//array();
@@ -51,14 +51,14 @@ class DaoJobhistory {
 //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, null, null, null, null, null);
         if ($d != null) {
-            $ob->setId($d->dado[0]);
+            $obj->setId($d->dado[0]);
         } else {
 
         }
-        return $ob;
+        return $obj;
     }
 
-    public function PegarUltimoId() {
+    public function PegarUltimoId(): int {
         $camposTabelas = array();
         $nomeTabelas = array("j" => "jobhistory");
         $condicoes = NULL;
@@ -73,7 +73,7 @@ class DaoJobhistory {
         return $Id;
     }
 
-    public function alterar(Jobhistory $obj) {
+    public function alterar(Jobhistory $obj): bool {
         $dado = array();
         $camposTabelas = array();
         $where = "";
@@ -84,16 +84,16 @@ class DaoJobhistory {
         }
     }
 
-    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) {
+    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) : bool {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
+    public function fucaoVerificarDefull($where) : bool {
         $this->dao->arrayTable = array("j" => "jobhistory");
         return $this->dao->Verificar($where, null);
     }
 
-    public function excluir(Jobhistory $obj) {
+    public function excluir(Jobhistory $obj): bool {
         $where = array();
         if ($this->dao->excluir($where, null)) {
             return true;

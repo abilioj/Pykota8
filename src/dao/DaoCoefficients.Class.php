@@ -4,67 +4,62 @@
  *
  * @author abilio.jose
  */
-class DaoCoefficients {
-    
 
-    private $dao;
-    private $colunas;
-    private $colunasAS;
-    private $colunasAS_Lista;
-    
-    //coefficients - "id", "printerid", "label", "coefficient" 
-    function __construct() {
+class DaoCoefficients
+{
+    private DaoFull $dao;
+
+    public function __construct()
+    {
         $this->dao = new DaoFull();
         $this->dao->table = "coefficients";
     }
 
-    public function inserir(Coefficients $obj) {
-        $dado = array();
-        $coluna = null; //array();
+    public function inserir(Coefficients $obj): bool
+    {
+        $dado = [];
+        $coluna = [];
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar() {
-        $camposTabelas = array("c.id", "c.printerid", "c.label", "c.coefficient" );
-        $nomeTabelas = array("c" => "coefficients");
-        $condicoes = null;// array();
+    public function Listar(): ?MontaDados
+    {
+        $camposTabelas = ["c.id", "c.printerid", "c.label", "c.coefficient"];
+        $nomeTabelas = ["c" => "coefficients"];
+        $condicoes = [];
         $this->dao->arrayTable = $nomeTabelas;
-        //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP, $arrayTO
         $arrayDados = $this->dao->listar($camposTabelas, $condicoes, null, "ASC", null, null, null);
-        if ($arrayDados != null) {
-            $obMontaDados = new MontaDados;
-            //$obMontaDados->CampoData = array(0 => "");
+        if ($arrayDados !== null) {
+            $obMontaDados = new MontaDados();
             $obMontaDados->colunas = $camposTabelas;
-            $obMontaDados->dados = $arrayDados;;
+            $obMontaDados->dados = $arrayDados;
             return $obMontaDados->deListar(2, "../../controle/cad_OBJ.php", 7);
         } else {
             return null;
         }
     }
 
-    public function selecionar(Coefficients $obj) {
-        $camposTabelas = array();
-        $nomeTabelas = array("c" => "coefficients");
-        $condicoes = array();
+    public function selecionar(Coefficients $obj): Coefficients
+    {
+        $camposTabelas = [];
+        $nomeTabelas = ["c" => "coefficients"];
+        $condicoes = [];
         $this->dao->arrayTable = $nomeTabelas;
-//$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, null, null, null, null, null);
-        if ($d != null) {
-            $ob->setId($d->dado[0]);
-        } else {
-
+        if ($d !== null) {
+            $obj->setId($d->dado[0]);
         }
-        return $ob;
+        return $obj;
     }
 
-    public function PegarUltimoId() {
-        $camposTabelas = array();
-        $nomeTabelas = array("c" => "coefficients");
-        $condicoes = NULL;
+    public function PegarUltimoId(): int
+    {
+        $camposTabelas = [];
+        $nomeTabelas = ["c" => "coefficients"];
+        $condicoes = [];
         $this->dao->arrayTable = $nomeTabelas;
-        //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, "", "DESC", 1, null, null);
-        if ($d != null) {
+        if ($d !== null) {
             $Id = $d->dado[0];
         } else {
             $Id = 0;
@@ -72,9 +67,10 @@ class DaoCoefficients {
         return $Id;
     }
 
-    public function alterar(Coefficients $obj) {
-        $dado = array();
-        $camposTabelas = array();
+    public function alterar(Coefficients $obj): bool
+    {
+        $dado = [];
+        $camposTabelas = [];
         $where = "";
         if ($this->dao->Atualizar($dado, $camposTabelas, $where, null)) {
             return true;
@@ -83,22 +79,24 @@ class DaoCoefficients {
         }
     }
 
-    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) {
+    public function fucaoAtualizarDefull(array $dado, array $camposTabelas, string $where): bool
+    {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
-        $this->dao->table = array("c" => "coefficients");
+    public function fucaoVerificarDefull(string $where): bool
+    {
+        $this->dao->table = ["c" => "coefficients"];
         return $this->dao->Verificar($where, null);
     }
 
-    public function excluir(Coefficients $obj) {
-        $where = array();
+    public function excluir(Coefficients $obj): bool
+    {
+        $where = [];
         if ($this->dao->excluir($where, null)) {
             return true;
         } else {
             return false;
         }
     }
-
 }

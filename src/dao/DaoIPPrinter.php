@@ -14,14 +14,14 @@ class DaoIPPrinter {
         $this->dao->table = "ip_printers";
     }
 
-    public function inserir(IPPrinter $obj) {
+    public function inserir(IPPrinter $obj): bool {
         $dado = array($obj->getId_printer(),$obj->getIp());
         $coluna = array("id_printer","ip");
         return $this->dao->inserir($dado, $coluna, null);
     }
 
 //    sem uso
-    public function Listar() {
+    public function Listar(): string|null {
         $camposTabelas = array();
         $nomeTabelas = array();
         $condicoes = null;//array();
@@ -40,7 +40,7 @@ class DaoIPPrinter {
     }
 
     //sem uso
-    public function selecionar($obj) {
+    public function selecionar(IPPrinter $obj) : IPPrinter {
         $camposTabelas = array();
         $nomeTabelas = array();
         $condicoes = null;//array();
@@ -48,14 +48,14 @@ class DaoIPPrinter {
 //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, null, null, null, null, null);
         if ($d != null) {
-            $ob->setId($d->dado[0]);
+            $obj->setId($d->dado[0]);
         } else {
 
         }
-        return $ob;
+        return $obj;
     }
 
-    public function getIpPorIdPrintrer(int $id) {
+    public function getIpPorIdPrintrer(int $id) : string {
         $camposTabelas = array("ipp.ip");
         $nomeTabelas = array("ipp" => "ip_printers","p" => "printers");
         $condicoes = array("ipp.id_printer=p.id","ipp.id_printer = {$id}");
@@ -70,7 +70,7 @@ class DaoIPPrinter {
         return $ip;
     }
 
-    public function selecionarPorIp(string $ip) {
+    public function selecionarPorIp(string $ip):Dados|null {
         $camposTabelas = array("p.id","p.printername");
         $nomeTabelas = array("ipp" => "ip_printers","p" => "printers");
         $condicoes = array("ipp.id_printer=p.id","ipp.ip = '{$ip}'");
@@ -94,7 +94,7 @@ class DaoIPPrinter {
         return $stn;
     }
 
-    public function PegarUltimoId() {
+    public function PegarUltimoId(): int {
         $camposTabelas = array();
         $nomeTabelas = array();
         $condicoes = NULL;
@@ -109,7 +109,7 @@ class DaoIPPrinter {
         return $Id;
     }
 
-    public function alterar($obj) {
+    public function alterar(IPPrinter $obj): bool {
         $dado = array();
         $camposTabelas = array();
         $where = "";
@@ -124,13 +124,13 @@ class DaoIPPrinter {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
+    public function fucaoVerificarDefull($where)  : bool {
         $this->dao->arrayTable = array("ipp" => "ip_printers");
         return $this->dao->Verificar($where, null);
     }
 
     //sem uso
-    public function excluir($obj) {
+    public function excluir($obj) : bool {
         $where = array();
         if ($this->dao->excluir($where, null)) {
             return true;

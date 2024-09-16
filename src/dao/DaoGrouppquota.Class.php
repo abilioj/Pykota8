@@ -17,13 +17,13 @@ class DaoGrouppquota {
         $this->dao->table = "grouppquota";
     }
 
-    public function inserir(Grouppquota $obj) {
+    public function inserir(Grouppquota $obj):bool {
         $dado = array();
         $coluna = null; //array();
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar() {
+    public function Listar():string|null {
         $camposTabelas = array("g.id", "g.groupid", "g.printerid", "g.softlimit", "g.hardlimit", "g.datelimit");
         $nomeTabelas = array("g" => "grouppquota");
         $condicoes = null;//array();
@@ -41,7 +41,7 @@ class DaoGrouppquota {
         }
     }
 
-    public function selecionar(Grouppquota $obj) {
+    public function selecionar(Grouppquota $obj): Grouppquota {
         $camposTabelas = array("g.id", "g.groupid", "g.printerid", "g.softlimit", "g.hardlimit", "g.datelimit");
         $nomeTabelas = array("g" => "grouppquota");
         $condicoes = array();
@@ -49,14 +49,14 @@ class DaoGrouppquota {
 //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, null, null, null, null, null);
         if ($d != null) {
-            $ob->setId($d->dado[0]);
+            $obj->setId($d->dado[0]);
         } else {
 
         }
-        return $ob;
+        return $obj;
     }
 
-    public function PegarUltimoId() {
+    public function PegarUltimoId(): int {
         $camposTabelas = array();
         $nomeTabelas = array("g" => "grouppquota");
         $condicoes = NULL;
@@ -71,7 +71,7 @@ class DaoGrouppquota {
         return $Id;
     }
 
-    public function alterar(Grouppquota $obj) {
+    public function alterar(Grouppquota $obj): bool {
         $dado = array();
         $camposTabelas = array();
         $where = "";
@@ -86,12 +86,12 @@ class DaoGrouppquota {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
+    public function fucaoVerificarDefull($where): bool {
         $this->dao->arrayTable = array("g" => "grouppquota");
         return $this->dao->Verificar($where, null);
     }
 
-    public function excluir(Grouppquota $obj) {
+    public function excluir(Grouppquota $obj): bool {
         $where = array();
         if ($this->dao->excluir($where, null)) {
             return true;

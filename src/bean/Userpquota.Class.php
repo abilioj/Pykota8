@@ -7,7 +7,7 @@
 class Userpquota {
     
     public function __construct(
-        private int $id,
+        private int $id = 0,
         private int $userid = 0,
         private int $printerid = 0,
         private int $lifepagecounter = 0,

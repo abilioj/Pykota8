@@ -19,13 +19,13 @@ class DaoNivelUsuario {
         $this->colunasAS_Lista = array("n.tipo_nivel","n.id_nivel");
     }
 
-    public function inserir(NivelUsuario $obj) {
+    public function inserir(NivelUsuario $obj): bool {
         $dado = array($obj->getNome());
         $coluna = $this->colunas;
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar() {
+    public function Listar() : string|null {
         $camposTabelas = $this->colunasAS;
         $nomeTabelas = array("n" => "nivel_usuario");
         $condicoes = null;//array();
@@ -42,7 +42,7 @@ class DaoNivelUsuario {
         }
     }
 
-    public function ListarToFone() {
+    public function ListarToFone() : string|null {
         $camposTabelas = $this->colunasAS;
         $nomeTabelas = array("n" => "nivel_usuario");
         $condicoes = null;
@@ -50,8 +50,7 @@ class DaoNivelUsuario {
         //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP, $arrayTO
         $arrayDados = $this->dao->listar($camposTabelas, $condicoes, "tipo_nivel", "ASC", null, null, NULL);
         if ($arrayDados != null) {
-            $obMontaDados = new MontaDados;
-            $obMontaDados->CampoData = $campoData;
+            $obMontaDados = new MontaDados; 
             $obMontaDados->colunas = $camposTabelas;
             $obMontaDados->ArrayCamposOcutar = null;
             $obMontaDados->dados = $arrayDados;
@@ -61,7 +60,7 @@ class DaoNivelUsuario {
         }
     }
     
-    public function selecionar(NivelUsuario $obj) {
+    public function selecionar(NivelUsuario $obj): NivelUsuario {
         $camposTabelas = $this->colunasAS;
         $nomeTabelas = array("n" => "nivel_usuario");
         $condicoes = array("n.id_nivel = " . $obj->getID() . " ");
@@ -76,7 +75,7 @@ class DaoNivelUsuario {
         return $obj;
     }
 
-    public function alterar(NivelUsuario $obj) {
+    public function alterar(NivelUsuario $obj):bool {
         $dado = array($obj->getNome());
         $camposTabelas = array("tipo_nivel");
         $where = "id_nivel = " . $obj->getId() . " ";
@@ -87,16 +86,16 @@ class DaoNivelUsuario {
         }
     }
 
-    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) {
+    public function fucaoAtualizarDefull($dado, $camposTabelas, $where): bool {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
+    public function fucaoVerificarDefull($where): bool {
         $this->dao->arrayTable = array("n" => "nivel_usuario");
         return $this->dao->Verificar($where, null);
     }
 
-    public function excluir(NivelUsuario $obj) {
+    public function excluir(NivelUsuario $obj): bool {
         $where = array("id_nivel = " . $obj->getIDNIVEL() . " ");
         if ($this->dao->excluir($where, null)) {
             return true;

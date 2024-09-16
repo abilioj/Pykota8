@@ -7,32 +7,32 @@
  */
 class DaoBillingcodes {
 
-    private $dao;
-    private $colunas;
-    private $colunasAS;
-    private $colunasAS_Lista;
+    private DaoFull $dao;
+    private array $colunas;
+    private array $colunasAS;
+    private array $colunasAS_Lista;
 
     //billingcodes - 'id', 'billingcode', 'description', 'balance', 'pagecounter'
 
-    function __construct() {
+    public function __construct() {
         $this->dao = new DaoFull();
         $this->dao->table = "billingcodes";
     }
 
-    public function inserir(Billingcodes $obj) {
+    public function inserir(Billingcodes $obj): bool {
         $dado = array();
-        $coluna = null; //array();
+        $coluna = array(); //array();
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar() {
+    public function Listar(): string|null {
         $camposTabelas = array('b.id', 'b.billingcode', 'b.description', 'b.balance', 'b.pagecounter');
         $nomeTabelas = array("b" => "billingcodes");
         $condicoes = array();
         $this->dao->arrayTable = $nomeTabelas;
-    //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP, $arrayTO
+//$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP, $arrayTO
         $arrayDados = $this->dao->listar($camposTabelas, $condicoes, null, "ASC", null, null, null);
-        if ($arrayDados != null) {
+        if ($arrayDados !== null) {
             $obMontaDados = new MontaDados;
 //            $obMontaDados->CampoData = array(0 => "");
             $obMontaDados->colunas = $camposTabelas;
@@ -43,29 +43,29 @@ class DaoBillingcodes {
         }
     }
 
-    public function selecionar(Billingcodes $obj) {
+    public function selecionar(Billingcodes $obj): Billingcodes {
         $camposTabelas = array();
         $nomeTabelas = array("b" => "billingcodes");
         $condicoes = array();
         $this->dao->arrayTable = $nomeTabelas;
 //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, null, null, null, null, null);
-        if ($d != null) {
-            $ob->setId($d->dado[0]);
+        if ($d !== null) {
+            $obj->setId($d->dado[0]);
         } else {
             
         }
-        return $ob;
+        return $obj;
     }
 
-    public function PegarUltimoId() {
+    public function PegarUltimoId(): int {
         $camposTabelas = array();
         $nomeTabelas = array();
         $condicoes = NULL;
         $this->dao->arrayTable = $nomeTabelas;
 //$camposTabelas, $condicoes, $colunaOrdenada, $ordenacao, $limit, $TOP,$ArrayTo
         $d = $this->dao->selecionar($camposTabelas, $condicoes, "", "DESC", 1, null, null);
-        if ($d != null) {
+        if ($d !== null) {
             $Id = $d->dado[0];
         } else {
             $Id = 0;
@@ -73,7 +73,7 @@ class DaoBillingcodes {
         return $Id;
     }
 
-    public function alterar(Billingcodes $obj) {
+    public function alterar(Billingcodes $obj): bool {
         $dado = array();
         $camposTabelas = array();
         $where = "";
@@ -84,16 +84,16 @@ class DaoBillingcodes {
         }
     }
 
-    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) {
+    public function fucaoAtualizarDefull(array $dado, array $camposTabelas, string $where): bool {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
+    public function fucaoVerificarDefull(string $where): bool {
         $this->dao->arrayTable = array("b" => "billingcodes");
         return $this->dao->Verificar($where, null);
     }
 
-    public function excluir(Billingcodes $obj) {
+    public function excluir(Billingcodes $obj): bool {
         $where = array();
         if ($this->dao->excluir($where, null)) {
             return true;

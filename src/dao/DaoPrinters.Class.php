@@ -23,14 +23,14 @@ class DaoPrinters {
         $this->colunasAS_Lista = array("p.printername", "p.description", "p.id");
     }
 
-    public function inserir(Printers $obj) {
+    public function inserir(Printers $obj): bool {
         $dado = array($obj->getPrintername(), $obj->getDescription(), $obj->getPriceperpage()
                 , $obj->getPriceperjob(), $obj->getPassthrough(), $obj->getMaxjobsize());
         $coluna = $this->colunas;
         return $this->dao->inserir($dado, $coluna, null);
     }
 
-    public function Listar() {
+    public function Listar(): MontaDados|string {
         $camposTabelas = $this->colunasAS_Lista;
         $nomeTabelas = array("p" => "printers");
         $condicoes = null;//array();
@@ -48,7 +48,7 @@ class DaoPrinters {
         }
     }
 
-    public function selecionar(Printers $obj) {
+    public function selecionar(Printers $obj): Printers {
         $camposTabelas = $this->colunasAS;
         $nomeTabelas = array("p" => "printers");
         $condicoes = array("p.id = " . $obj->getId());
@@ -64,12 +64,12 @@ class DaoPrinters {
             $obj->setPassthrough($d->dado[5]);
             $obj->setMaxjobsize($d->dado[6]);
         } else {
-            $obj-setId(0);
+            $obj->setId(0);
         }
         return $obj;
     }
 
-    public function PegarUltimoId() {
+    public function PegarUltimoId(): int {
         $camposTabelas = array("p.id");
         $nomeTabelas = array("p" => "printers");
         $condicoes = NULL;
@@ -84,7 +84,7 @@ class DaoPrinters {
         return $Id;
     }
 
-    public function alterar(Printers $obj) {// , "passthrough" , $obj->getPassthrough()
+    public function alterar(Printers $obj) : bool {// , "passthrough" , $obj->getPassthrough()
         $dado = array($obj->getPrintername(), $obj->getDescription(), $obj->getPriceperpage()
                 , $obj->getPriceperjob(), $obj->getMaxjobsize());//, "passthrough", $obj->getPassthrough()
         $camposTabelas = array("printername", "description", "priceperpage", "priceperjob", "maxjobsize");
@@ -96,16 +96,16 @@ class DaoPrinters {
         }
     }
 
-    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) {
+    public function fucaoAtualizarDefull($dado, $camposTabelas, $where) : bool {
         return $this->dao->Atualizar($dado, $camposTabelas, $where, null);
     }
 
-    public function fucaoVerificarDefull($where) {
+    public function fucaoVerificarDefull($where): bool {
         $this->dao->arrayTable = array("p" => "printers");
         return $this->dao->Verificar($where, null);
     }
 
-    public function excluir(Printers $obj) {
+    public function excluir(Printers $obj): bool {
         $where = array("id = " . $obj->getId() . "");
         if ($this->dao->excluir($where, null)) {
             return true;
