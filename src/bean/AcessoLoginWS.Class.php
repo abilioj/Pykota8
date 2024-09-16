@@ -50,7 +50,7 @@ class AcessoLoginWS {
         $this->tempo = $tempo;
     }
 
-    function setDataaccesslogin($dataaccesslogin): void {
+    function setDataaccesslogin(string $dataaccesslogin): void {
         $this->dataaccesslogin = $dataaccesslogin;
     }
 

@@ -35,23 +35,23 @@ class Billingcodes {
         return $this->pagecounter;
     }
 
-    function setId($id): void {
+    function setId(int $id): void {
         $this->id = $id;
     }
 
-    function setBillingcode($billingcode): void {
+    function setBillingcode(string $billingcode): void {
         $this->billingcode = $billingcode;
     }
 
-    function setDescription($description): void {
+    function setDescription(string $description): void {
         $this->description = $description;
     }
 
-    function setBalance($balance): void {
+    function setBalance(float $balance): void {
         $this->balance = $balance;
     }
 
-    function setPagecounter($pagecounter): void {
+    function setPagecounter(int $pagecounter): void {
         $this->pagecounter = $pagecounter;
     }
 
