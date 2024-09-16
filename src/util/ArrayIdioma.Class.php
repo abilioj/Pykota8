@@ -47,7 +47,7 @@ class ArrayIdioma {
             $this->Array = $array_usEN = array(
                 "Connection" => $paramArray[0],
                 "failed:" => $paramArray[1],
-                "php_network_getaddresses:" => paramArray[2],
+                "php_network_getaddresses:" => $paramArray[2],
                 "getaddrinfo" => $paramArray[3],
                 "failed_c:" => $paramArray[4],
                 "Este" => $paramArray[5],
