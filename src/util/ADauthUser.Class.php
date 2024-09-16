@@ -40,8 +40,8 @@ class ADauthUser {
     /**
      * Metodo para coneceta no ad
      * @access private
-     * @param String ${user} logan
-     * @param String ${pwd}
+     * @param string &$user
+     * @param string &$pwd
      * @return boolean
      */
     private function getConnect(string $user, string $pwd): bool {
@@ -162,7 +162,7 @@ public function User_Authenticate_AD(string $user, string $pwd): ADUser {
 }
 
 
-    public function Users_Authenticate_AD($user, $pwd): array {
+    public function Users_Authenticate_AD($user, $pwd): array|bool {
         $this->arrayData = null;
         if ($user == "" || $user == NULL && $pwd == "" || $pwd == NULL):
             return FALSE;

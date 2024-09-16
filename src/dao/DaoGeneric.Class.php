@@ -6,18 +6,13 @@
  * @author abilio.jose
  */
 class DaoGeneric {
-
-    private array $Array;
-    private int $nLinha;
-    private Sql $sql;
+ 
+    private array $Array; 
     private SqlRules $sqlR;
     private SqlRulesRelatorios $sqlRR;
     private Conexao $conn;
 
-    function __construct() {
-        $this->Array = [];
-        $this->nLinha = 0;
-        $this->sql = new Sql(null);
+    function __construct() {  
         $this->sqlR = new SqlRules();
         $this->sqlRR = new SqlRulesRelatorios();
         $this->conn = new Conexao();
@@ -39,7 +34,7 @@ class DaoGeneric {
 
     //metodo de array de ContasUser - pra listar cota de cada grupo nas view. com nome de grupo,usuario resposavel e numero de cotas UNICO ADM
     public function listContasUserFindIDUsersII(int $idU, int $op) {
-        $this->Array = NULL;
+        $this->Array = [];
         $sqlR = new SqlRules();
         $conn = new Conexao();
         if ($op == 0):
@@ -57,7 +52,7 @@ class DaoGeneric {
 
     //listar todo usuario com todas inmformação de cota de um deteminado grupo && view ver grupo 
     public function listContasUserFindIDGroup(CotasUser $obj,int $op) {
-        $this->Array = NULL;
+        $this->Array = [];
         $conn = new Conexao();
         $sqlR = new SqlRules();
         switch ($op):
@@ -82,7 +77,7 @@ class DaoGeneric {
     }
     
     public function listContasUserFindIDGroupBalance(int $paramId) {
-        $this->Array = null;
+        $this->Array = [];
         $this->conn->sql = $this->sqlR->sqlVerGrupoFindIDgroupUsersBalance($paramId);
         $ArrayPesquisa = $this->conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):
@@ -98,7 +93,7 @@ class DaoGeneric {
     
     //listar todo usuario com todas inmformação de cota de um deteminado grupo && view ver grupo 
     public function listSelctUserCotas(Userpquota $obj) {
-        $this->Array = NULL;
+        $this->Array = [];
         $conn = new Conexao();
         $sqlR = new SqlRules();
         $conn->sql = $sqlR->sqlSelctUserCotas($obj->getUserid(), $obj->getPrinterid());
@@ -113,7 +108,7 @@ class DaoGeneric {
 
     //listar todo usuario com todas inmformação de cota de um deteminado grupo
     public function listContasUserFindIDGroupII(CotasUser $obj) {
-        $this->Array = NULL;
+        $this->Array = [];
         $conn = new Conexao();
         $sqlR = new SqlRules();
         $conn->sql = $sqlR->sqlVerGrupoFindIDgroup( $obj->getPkgroup());
@@ -127,7 +122,7 @@ class DaoGeneric {
 
     //metodo de array de ContasUser - pra listar cota de cada grupo nas view. com nome de grupo,usuario resposavel e numero de cotas
     public function listContasUserFindAll() {
-        $this->Array = NULL;
+        $this->Array = [];
         $conn = new Conexao();
         $conn->sql = "Select g.groupname as grupo, u.username as usuario, \"LimiteSetor\", g.id as idg, u.id as idu from \"Cotas_User\" as cu,groups as g, users as u "
                 . "where cu.pkgroup=g.id and cu.pkuser = u.id ;";
@@ -140,7 +135,7 @@ class DaoGeneric {
     }
 
     public function listHistoricoUsuario($conditions): array {
-        $this->Array = null;
+        $this->Array = [];
         $this->conn->sql = $this->sqlRR->sqlHistoricoUsuario($conditions);
         $arrayPesq = $this->conn->fetchArrayAssoc();
         foreach ($arrayPesq as $col):
@@ -154,7 +149,7 @@ class DaoGeneric {
     public function getSelectsModalAlterar(int $iduq, int $idg) {
         $conn = new Conexao();
         $sqlR = new SqlRules();
-        $array = NULL;
+        $array = [];
         $conn->sql = $sqlR->sqlSelectModalAlterar($iduq, $idg);
         $ArrayPesquisa = $conn->fetchArrayAssoc();
         foreach ($ArrayPesquisa as $r):

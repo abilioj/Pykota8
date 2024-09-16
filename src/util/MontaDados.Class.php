@@ -191,7 +191,7 @@ class MontaDados {
     public function pegaDados(): Dados {
         $d = new Dados();
         $qtdColunas = count($this->colunas); //QUANTIDADE DE COLUNAS
-        $qtdDados = count($this->dados); //QUANTIDADE  DE DADOS
+        //$qtdDados = count($this->dados); //QUANTIDADE  DE DADOS
         foreach ($this->dados as $dados) {
             for ($y = 0; $y < $qtdColunas; $y++) {
                 $col = $this->colunas[$y];

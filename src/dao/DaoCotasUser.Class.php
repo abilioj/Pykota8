@@ -9,14 +9,12 @@ class DaoCotasUser {
 
     private $dao;
     private $colunas;
-    private $colunasAS;
 
     //Cotas_User - "pkuser", "\"LimiteSetor\"", "pkgroup" 
     function __construct() {
         $this->dao = new DaoFull();
         $this->dao->table = "\"Cotas_User\"";
-        $this->colunas = array("pkuser", "\"LimiteSetor\"", "pkgroup");
-        $this->colunasAS = array("co.pkuser", "\"co.LimiteSetor\"", "co.pkgroup");
+        $this->colunas = array("pkuser", "\"LimiteSetor\"", "pkgroup"); 
     }
 
     public function inserir(CotasUser $obj) {

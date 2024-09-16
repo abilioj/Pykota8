@@ -74,8 +74,8 @@ class Users {
         $this->lifetimepaid = $lifetimepaid;
     }
 
-    public function setLimitby(int $limitby): void {
-        $this->limitby = $limitby;
+    public function setLimitby(int|string $limitby): void {
+        $this->limitby = (int)$limitby;
     }
 
     public function setDescription(string $description): void {

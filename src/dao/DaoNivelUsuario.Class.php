@@ -8,15 +8,13 @@ class DaoNivelUsuario {
  
     private $dao;
     private $colunas;
-    private $colunasAS;
-    private $colunasAS_Lista;
+    private $colunasAS; 
 
     function __construct() {
         $this->dao = new DaoFull();
         $this->dao->table = "nivel_usuario";
         $this->colunas = array("tipo_nivel");
-        $this->colunasAS = array("n.tipo_nivel","n.id_nivel");
-        $this->colunasAS_Lista = array("n.tipo_nivel","n.id_nivel");
+        $this->colunasAS = array("n.tipo_nivel","n.id_nivel"); 
     }
 
     public function inserir(NivelUsuario $obj): bool {

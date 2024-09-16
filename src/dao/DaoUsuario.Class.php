@@ -5,6 +5,7 @@ class DaoUsuario {
     private $dao;
     private $colunas;
     private $colunasAS;
+    private $lastInsertId;
     private $isOk;
 
     function __construct() {
@@ -162,4 +163,7 @@ class DaoUsuario {
         return $usu;
     }
 
+    public function getLastInsertId() : int {
+        return $this->lastInsertId;
+    }
 }
