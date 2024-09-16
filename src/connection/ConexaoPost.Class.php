@@ -1,19 +1,22 @@
 <?php
 
+use  PgSql\Connection;
+use PgSql\Result;
+
 Class ConexaoPost {
 
-    private $bancoDeDados;
-    private $usuario;
-    private $servidor;
-    private $senha;
-    private $porta;
-    private $conexao;
-    private $execucao;
-    private $numrows;
-    private $isOK;
-    private $string;
-    private $error;
-    public $sql;
+    private string $bancoDeDados;
+    private string $usuario;
+    private string $servidor;
+    private string $senha;
+    private int $porta;
+    private Connection|false $conexao;
+    private Result|bool $execucao;
+    private int $numrows;
+    private bool $isOK;
+    private string $string;
+    private string $error;
+    public string $sql;
 
     function __construct() {
         $configBD = new ConfigBDClass();
@@ -34,7 +37,7 @@ Class ConexaoPost {
         }
     }
 
-    public function executaQuery() {
+    public function executaQuery() : mixed {
         try {
             $this->conecta();
         } catch (Exception $erro) {
@@ -71,7 +74,7 @@ Class ConexaoPost {
     }
 
     // Salva no array $line resultados retornados
-    function MostrarResultados() : array {
+    function fetchArrayAssoc() : array|null {
         $execucao = $this->executaQuery();
         $line = pg_fetch_array($execucao);
         return $line;
@@ -112,7 +115,7 @@ Class ConexaoPost {
     }
 
     // Libera consulta da memoria
-    public function Liberar() {
+    public function Liberar(): void {
         pg_free_result($this->execucao);
     }
 

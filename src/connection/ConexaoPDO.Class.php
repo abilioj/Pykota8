@@ -6,7 +6,7 @@
  * @author AJGF
  */
 class ConexaoPDO {
-    private static ?PDO $pdo = null;
+    private ?PDO $pdo = null;
     private string $database;
     private string $user;
     private string $server;
@@ -94,7 +94,7 @@ class ConexaoPDO {
         }
     }
 
-    public function executeQuery() {
+    public function executeQuery(): bool|PDOStatement  {
         try {
             $this->validationConnect();
             $this->validationSql();
