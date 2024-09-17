@@ -200,7 +200,7 @@ class ConexaoPDO {
 
     public function fetchArrayAssoc(): array {
         $result = $this->executeQuery();
-        return $this->isOk && $this->numrows > 0 ? $result->fetchAll(PDO::FETCH_ASSOC) : [];
+        return $this->isOk && $this->numrows > 0 ? $result->fetchAll(PDO::FETCH_BOTH) : [];
     }
 
     public function fetchArrayCLASSTYPE(): array {
