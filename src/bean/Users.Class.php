@@ -12,7 +12,7 @@ class Users {
         private string $email = '',
         private float $balance = 0.0,
         private float $lifetimepaid = 0.0,
-        private int $limitby = 0,
+        private string $limitby = '',
         private string $description = '',
         private float $overcharge = 0.0,
         private int $limitmonth = 0,
@@ -38,7 +38,7 @@ class Users {
         return $this->lifetimepaid;
     }
 
-    public function getLimitby(): int {
+    public function getLimitby(): string {
         return $this->limitby;
     }
 
@@ -74,8 +74,8 @@ class Users {
         $this->lifetimepaid = $lifetimepaid;
     }
 
-    public function setLimitby(int|string $limitby): void {
-        $this->limitby = (int)$limitby;
+    public function setLimitby(string $limitby): void {
+        $this->limitby = $limitby;
     }
 
     public function setDescription(string $description): void {
