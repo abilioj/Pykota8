@@ -21,14 +21,13 @@ $indxi = 0;
 $indxf = (int) Request::Do_POST('indxf', -1);
 $idg = (int) Request::Do_POST('idg', 0);
 $idur = (int) Request::Do_POST('idur', 0); //id responsalve
-$ano = (int) Request::Do_POST('ano', -1);
-$op = (int) Request::Do_POST('op', 0);
+$ano = (int) Request::Do_POST('ano', 0);
+$op = (int) Request::Do_POST('op', 1);
 $opEstat = (int) Request::Do_POST('opEstat', 0);
 $dadosJson = null;
 if ($ano == 0)
     $ano = 2022;
 
-$array_dados['graficoLabesTitle'][] = $dadoArray->ArrayMeses();
 
 switch ($op):
     //ok - case 0 
@@ -62,6 +61,7 @@ switch ($op):
         endif;
         break;
     case 1:
+        $dadosJson['graficoLabesTitle'] = $dadoArray->ArrayMeses();
         $dadosJson['grafico'] = null;
         //quantidade de copia por ano de cada impressora
         if ($opEstat == 0):

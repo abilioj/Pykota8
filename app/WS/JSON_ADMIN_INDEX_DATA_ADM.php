@@ -18,9 +18,9 @@ $conditions = null;
 $arrayWhere = null;
 $result = 0;
 $dados = null;
-$idg = (int) Request::Do_POST('idg', $resuDefat);
-$idu = (int) Request::Do_POST('idu', $resuDefat);
-$idp = (int) Request::Do_POST('idp', $resuDefat);
+$idg = (int) Request::Do_POST('idg', 0);
+$idu = (int) Request::Do_POST('idu', 0);
+$idp = (int) Request::Do_POST('idp', 0);
 
 if ($idg != null && $idg > 0):
     $arrayWhere[] = "g.id = " . $idg . "";

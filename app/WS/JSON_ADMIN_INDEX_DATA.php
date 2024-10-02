@@ -46,7 +46,7 @@ if ($result != null):
 else:
     $dados["data"] = null;
 endif;
-$dados['info'] = ['row' => $row, 'isOK' => $IsOK];
+$dados['info'] = ['row' => $row, 'isOK' => NULL];
 
 //echo '<pre>'.json_encode($dados,JSON_PRETTY_PRINT).'</pre>';
 echo json_encode($dados, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);

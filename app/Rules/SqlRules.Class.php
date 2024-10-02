@@ -274,7 +274,7 @@ class SqlRules {
         $this->ClassSQL->arrayTable = array("u" => "users");
         $this->ClassSQL->camposTabelas = array("u.id as idu", "u.balance", "u.limitmonth");
         $this->ClassSQL->conditionsLeftJoin = array('left join groupsmembers gm on gm.userid=u.id', ' left join groups g on gm.groupid=g.id', ' left join userpquota uc on uc.userid=u.id', ' left join "Cotas_User" cu on cu.pkgroup=g.id', ' left join users u2 on u2.id=cu.pkuser');
-        $this->ClassSQL->condicoesTabela = array("g.groupname is not null", "g.id = " . $idGroup . "");
+        $this->ClassSQL->condicoesTabela = array("g.groupname is not null", "g.id = " . $id . "");
         $this->ClassSQL->GroupBY = array("u.id");
         $this->ClassSQL->colunaOrdenada = "u.username";
         $this->ClassSQL->ordenacao = "ASC";

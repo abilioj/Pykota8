@@ -40,6 +40,7 @@ $ids_mibPrintHP = array(
 );
 
 for ($i = 1; $i <= 21; $i++) {
+    $session = NULL;
     if ($i == 5):
         $ip = (string) $faix_ip . $i;
         $name = $dao->returnNome($ip);

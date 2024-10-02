@@ -6,6 +6,769 @@
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9100"
+    ],
+    [
+      9101,
+      "DIR ADM 9101 <9101>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9101"
+    ],
+    [
+      9102,
+      "RH SUPERVISAO 9102",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9102"
+    ],
+    [
+      9103,
+      "DIR TEC 9103 <9103>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9103"
+    ],
+    [
+      9104,
+      "JURIDICO 9104 <9104>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9104"
+    ],
+    [
+      9105,
+      "Jessyca-DP",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9105"
+    ],
+    [
+      9106,
+      "RH 9106 <9106>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9106"
+    ],
+    [
+      9107,
+      "PSI ORG 9107 <9107>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9107"
+    ],
+    [
+      9108,
+      "CORD ENF 9108 <9108>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9108"
+    ],
+    [
+      9109,
+      "ENFERMARIA3 9109 <9109>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9109"
+    ],
+    [
+      9110,
+      "SEC DIR 9110 <9110>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9110"
+    ],
+    [
+      9111,
+      "NSP 9111 <9111>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9111"
+    ],
+    [
+      9112,
+      "CONTAB 9112 <9112>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9112"
+    ],
+    [
+      9113,
+      "OPO 9113",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9113"
+    ],
+    [
+      9114,
+      "ENS PES 9114 <9114>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9114"
+    ],
+    [
+      9115,
+      "HOSPCOM 9115 <9115>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9115"
+    ],
+    [
+      9116,
+      "SUPRIMENTOS 9116 <9116>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9116"
+    ],
+    [
+      9117,
+      "SND PROD 9117 <9117>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9117"
+    ],
+    [
+      9118,
+      "SND NUT 9118 <9118>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9118"
+    ],
+    [
+      9119,
+      "AREA SUJA 9119 <9119>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9119"
+    ],
+    [
+      9120,
+      "UTI4 9120 <9120>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9120"
+    ],
+    [
+      9121,
+      "ROUPARIA 9121 <9121>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9121"
+    ],
+    [
+      9122,
+      "LAVANDA SUP 9122 <9122>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9122"
+    ],
+    [
+      9123,
+      "SESMT 9123 <9123>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9123"
+    ],
+    [
+      9124,
+      "ALMOX 9124",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9124"
+    ],
+    [
+      9125,
+      "FARMACIA 9125 <9125>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9125"
+    ],
+    [
+      9126,
+      "CME 9126 <9126>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9126"
+    ],
+    [
+      9127,
+      "SEC CC <9127>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9127"
+    ],
+    [
+      9128,
+      "FARM CC 9128 <9128>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9128"
+    ],
+    [
+      9129,
+      "CC 9129 <9129>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9129"
+    ],
+    [
+      9130,
+      "PAT TRANS 9130 <9130>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9130"
+    ],
+    [
+      9131,
+      "ISOLAMENTO ENF4 9131 <9131>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9131"
+    ],
+    [
+      9132,
+      "ENG CLIN 9132 <9132>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9132"
+    ],
+    [
+      9133,
+      "ESTAR MEDICO 9133 <9133>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9133"
+    ],
+    [
+      9134,
+      "UTI5 9134",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9134"
+    ],
+    [
+      9135,
+      "UTI6 9135",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9135"
+    ],
+    [
+      9136,
+      "GUARITA EMER 9136 <9136>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9136"
+    ],
+    [
+      9137,
+      "ENFERMARIA4 9137 <9137>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9137"
+    ],
+    [
+      9138,
+      "CCIH 9138 <9138>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9138"
+    ],
+    [
+      9139,
+      "COORDOP 9139",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9139"
+    ],
+    [
+      9140,
+      "COORD MULTI <9140>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9140"
+    ],
+    [
+      9141,
+      "PS ENF 9141 <9141>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9141"
+    ],
+    [
+      9142,
+      "PS EMERG <9142>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9142"
+    ],
+    [
+      9143,
+      "SEC PS 9143",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9143"
+    ],
+    [
+      9144,
+      "UTI3 9144 <9144>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9144"
+    ],
+    [
+      9145,
+      "SERV SOCIAL 9145 <9145>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9145"
+    ],
+    [
+      9146,
+      "ALMOX FARM <9146>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9146"
+    ],
+    [
+      9147,
+      "TRIAGEM MED 9147 <9147>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9147"
+    ],
+    [
+      9148,
+      "SALA GESSO 9148 <9148>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9148"
+    ],
+    [
+      9149,
+      "RETORNO 9149",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9149"
+    ],
+    [
+      9150,
+      "NIR2 9150",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9150"
+    ],
+    [
+      9151,
+      "Hemodialise 9151",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9151"
+    ],
+    [
+      9152,
+      "Coord Enfermarias 9152 <9152>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9152"
+    ],
+    [
+      9153,
+      "Ramal 9153 <9153>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9153"
+    ],
+    [
+      9154,
+      "OUVIDORIA 9154 <9154>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9154"
+    ],
+    [
+      9155,
+      "FINANCEIRO 9155 <9155>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9155"
+    ],
+    [
+      9156,
+      "ULTRASSOM 9156 <9156>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9156"
+    ],
+    [
+      9157,
+      "Ramal 9157 <9157>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9157"
+    ],
+    [
+      9158,
+      "ACOLHIMENTO 9158 <9158>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9158"
+    ],
+    [
+      9159,
+      "RAIOX 9159 <9159>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9159"
+    ],
+    [
+      9160,
+      "TOMOGRAFIA 9160 <9160>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9160"
+    ],
+    [
+      9161,
+      "NEPSA2 9161",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9161"
+    ],
+    [
+      9162,
+      "SEC TEC 9162 <9162>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9162"
+    ],
+    [
+      9163,
+      "COMUNICAO 9163 <9163>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9163"
+    ],
+    [
+      9164,
+      "PSI HOSP 9164",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9164"
+    ],
+    [
+      9165,
+      "Coord UTI",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9165"
+    ],
+    [
+      9166,
+      "CAMARA ESC 9166 <9166>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9166"
+    ],
+    [
+      9167,
+      "LAUDO 9167 <9167>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9167"
+    ],
+    [
+      9168,
+      "NVEH <9168>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9168"
+    ],
+    [
+      9169,
+      "ARQUIVO 9169 <9169>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9169"
+    ],
+    [
+      9170,
+      "REC PS 9170 <9170>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9170"
+    ],
+    [
+      9171,
+      "REC PS 9171 <9171>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9171"
+    ],
+    [
+      9172,
+      "NIR 9172",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9172"
+    ],
+    [
+      9173,
+      "ENFERMARIA 2 9173 <9173>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9173"
+    ],
+    [
+      9174,
+      "ENFERMARIA 2(2) 9174 <9174>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9174"
+    ],
+    [
+      9175,
+      "Ramal 9175 <9175>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9175"
+    ],
+    [
+      9176,
+      "FATURAMENTO 9176 <9176>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9176"
+    ],
+    [
+      9177,
+      "Ramal 9177 <9177>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9177"
+    ],
+    [
+      9178,
+      "Ramal 9178 <9178>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9178"
+    ],
+    [
+      9179,
+      "NEPSA 9179",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9179"
+    ],
+    [
+      9180,
+      "AG TRANS 9180 <9180>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9180"
+    ],
+    [
+      9181,
+      "Ramal 9181 <9181>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9181"
+    ],
+    [
+      9182,
+      "Ramal 9182 <9182>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9182"
+    ],
+    [
+      9183,
+      "LAB TEC 9183 <9183>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9183"
+    ],
+    [
+      9184,
+      "LACTARIO 9184 <9184>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9184"
+    ],
+    [
+      9185,
+      "ED CONT 9185",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9185"
+    ],
+    [
+      9186,
+      "Ramal 9186 <9186>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9186"
+    ],
+    [
+      9187,
+      "Ramal 9187 <9187>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9187"
+    ],
+    [
+      9188,
+      "REC ADM 9188 <9188>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9188"
+    ],
+    [
+      9189,
+      "MANUTENCAO 9189 <9189>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9189"
+    ],
+    [
+      9190,
+      "CENTRO CUSTO 9190 <9190>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9190"
+    ],
+    [
+      9191,
+      "TELEFONIA 9191 <9191>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9191"
+    ],
+    [
+      9192,
+      "TELEFONIA 9192 <9192>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9192"
+    ],
+    [
+      9193,
+      "TI 9193",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9193"
+    ],
+    [
+      9194,
+      "LAB 9194",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9194"
+    ],
+    [
+      9195,
+      "COM PRONT 9195 <9195>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9195"
+    ],
+    [
+      9196,
+      "Ramal 9196 <9196>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9196"
+    ],
+    [
+      9197,
+      "CORD AP CLI 9197 <9197>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9197"
+    ],
+    [
+      9198,
+      "SESMT 9198 <9198>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9198"
+    ],
+    [
+      9199,
+      "Ramal 9199",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9199"
+    ],
+    [
+      9205,
+      "Iranda-dp",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9205"
+    ],
+    [
+      9206,
+      "lilian-dp",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9206"
+    ],
+    [
+      9211,
+      "Qualid-2",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9211"
+    ],
+    [
+      9224,
+      "Almox-9224",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9224"
+    ],
+    [
+      9292,
+      "Ti-jose",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9292"
+    ],
+    [
+      9293,
+      "Ti-Esli",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9293"
+    ],
+    [
+      9294,
+      "ti-abilio",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9294"
+    ],
+    [
+      9295,
+      "Paulo-TI",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9295"
+    ],
+    [
+      9296,
+      "kelly-mv",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9296"
+    ],
+    [
+      9298,
+      "nubia-sesmt",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9298"
     ]
   ]
 }

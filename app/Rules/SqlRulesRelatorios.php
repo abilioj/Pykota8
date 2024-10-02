@@ -36,12 +36,10 @@ class SqlRulesRelatorios {
         $condicao = "";
         if ($idg != 0)
             $condicao = "g.id={$idg} and";
-        $this->stnSQL = "select * from estatistica_imprecao_mes_por_ano_m where ano={$paramAno};";
+        return $this->stnSQL = "select * from estatistica_imprecao_mes_por_ano_m where ano={$paramAno};";
     }
     
-    public function SqlViewEstatistica_pro_imprecao($paramIdUR, $paramAno): string {
-        
-    }
+    public function SqlViewEstatistica_pro_imprecao($paramIdUR, $paramAno): void { }
 
     public function sqlHistoricoUsuario($conditions): string {
         $this->ClassSQL->arrayTable = array('a' => 'jobhistory');
@@ -130,7 +128,7 @@ sum(case when extract(month from a.jobdate)=11 then a.jobsize else 0 end) NOVEMB
 sum(case when extract(month from a.jobdate)=12 then a.jobsize else 0 end) DEZEMBRO,
 p.printername as PRINTER
 from jobhistory a
-left join users u on u.id=a.userid left join userpquota up on up.userid=u.id left join printers p on p.id=up.printerid
+ left join printers p on a.printerid=p.id
 where p.printername is not null and a.action='ALLOW' and a.jobdate between '{$paramAno}-01-01' and '{$paramAno}-12-31' group by p.printername";
         return $this->stnSQL;
     }

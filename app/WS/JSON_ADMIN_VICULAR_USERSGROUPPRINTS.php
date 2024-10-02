@@ -17,7 +17,7 @@ $arrayWhere = NULL;
 //variavel Class
 $conn = new Conexao();
 $sql = new Sql(null);
-$sqlR = new SqlRules(null);
+$sqlR = new SqlRules();
 $objuSer = new Users();
 $objuSerQ = new Userpquota(0);
 $objP = new Printers();
