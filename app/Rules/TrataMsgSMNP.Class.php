@@ -149,6 +149,9 @@ class TrataMsgSMNP {
             case 'Hex- 42 61 6E 64 65 6A 61 20 6D 75 6C 74 69 66 75 6E 63 69 6F 6E 61 6C 20 73 65 6D 20 70 61 70 65 6C 20 64 75 72 61 6E 74 65 20 61 20 69 6D 70 72 65 73 73 C3 A3 6F':
                 $stnRet = 'Bandeja multifuncional sem papel durante a impressão';
                 break;
+            case 'Hex- 4F 20 66 75 73 6F 72 20 61 74 69 6E 67 69 75 20 73 75 61 20 76 69 64 61 20 C3 BA 74 69 6C 2E 20 53 75 62 73 74 2E 20 61 20 75 6E 69 64 2E 20 70 61 72 61 20 67 61 72 61 6E 74 69 72 20 61 20 71 75 61 6C 69 64 61 64 65 20 64 65 20 69 6D 70 72 2E':
+                $stnRet = 'Fusor atingiu sua vida útil';
+                break;
             default :
                 $stnRet = $stn;
                 break;
