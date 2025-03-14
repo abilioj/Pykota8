@@ -86,7 +86,7 @@
     ],
     [
       9112,
-      "CONTAB 9112 <9112>",
+      "ENSPES 9112",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9112"
@@ -219,7 +219,7 @@
     ],
     [
       9131,
-      "ISOLAMENTO ENF4 9131 <9131>",
+      "PS PRESCRICAO 9131",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9131"
@@ -310,14 +310,14 @@
     ],
     [
       9144,
-      "UTI3 9144 <9144>",
+      "UTI-2 9144 <9144>",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9144"
     ],
     [
       9145,
-      "SERV SOCIAL 9145 <9145>",
+      "SERV SOCIAL 9145",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9145"
@@ -513,14 +513,14 @@
     ],
     [
       9173,
-      "ENFERMARIA 2 9173 <9173>",
+      "UTI - 1 9173 <9173>",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9173"
     ],
     [
       9174,
-      "ENFERMARIA 2(2) 9174 <9174>",
+      "UTI - 3 9174 <9174>",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9174"
@@ -674,21 +674,21 @@
     ],
     [
       9196,
-      "Ramal 9196 <9196>",
+      "SAD 9196",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9196"
     ],
     [
       9197,
-      "CORD AP CLI 9197 <9197>",
+      "CORD AP CLI 9197",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9197"
     ],
     [
       9198,
-      "SESMT 9198 <9198>",
+      "SESMT 9198",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9198"
@@ -722,11 +722,39 @@
       "SIP/9211"
     ],
     [
+      9215,
+      "ENGCLIN2 9215",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9215"
+    ],
+    [
       9224,
       "Almox-9224",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9224"
+    ],
+    [
+      9249,
+      "Sup-Amb",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9249"
+    ],
+    [
+      9265,
+      "9265 <coorduti2>",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9265"
+    ],
+    [
+      9267,
+      "Radiologia ramal 2",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9267"
     ],
     [
       9292,
@@ -744,7 +772,7 @@
     ],
     [
       9294,
-      "ti-abilio",
+      "Laboratório-Carol",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9294"
@@ -764,11 +792,39 @@
       "SIP/9296"
     ],
     [
+      9297,
+      "apoiocli2",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9297"
+    ],
+    [
       9298,
       "nubia-sesmt",
       "rfc2833",
       "alaw;ulaw;gsm",
       "SIP/9298"
+    ],
+    [
+      9311,
+      "Qualid-3",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9311"
+    ],
+    [
+      9393,
+      "Rodrigo-TI",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9393"
+    ],
+    [
+      9493,
+      "ti-Abílio",
+      "rfc2833",
+      "alaw;ulaw;gsm",
+      "SIP/9493"
     ]
   ]
 }

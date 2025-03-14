@@ -141,7 +141,7 @@ class TrataMsgSMNP {
                 $stnRet = 'Não detectado: Bandeja 1';
                 break;
             case 'Hex- 50 61 70 65 6C 20 65 73 74 C3 A1 20 76 61 7A 69 6F 20 6E 61 20 62 61 6E 64 65 6A 61 20 32 2E 20 43 61 72 72 65 67 75 65 20 70 61 70 65 6C 2E':
-                $stnRet = 'Sem papel: Bandeja 2.';
+                $stnRet = 'Sem papel: Bandeja 1.';
                 break;
             case 'Hex- 47 61 76 65 74 61 20 64 61 20 62 61 6E 64 65 6A 61 20 32 20 65 73 74 C3 A1 20 70 75 78 61 64 61 2E 20 49 6E 73 69 72 61 2E':
                 $stnRet = 'Gaveta da bandeja 2 está puxada';
